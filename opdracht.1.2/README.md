@@ -1,5 +1,9 @@
 # ObA - Books Based On History
 
+> Op deze devices heb ik niet kunnen testen om de volgende redenen:
+* De `Huawai Ascemd Y300` en de `Apple iPod Touch` hadden beide het probleem dat ze geen verbinding konden maken vanwege ontbrekende veilige verbinding tot een server.
+* De `Windows RT 8.1` had de browser `Internet Explorere 11.0` en hierop kun je geen @import gebruiken. Hier bestaat grotendeels mijn code uit voor een fijne structuur. Om dit te voorkomen zou ik alles eerst moet compilen. 
+
 ## Three different devices
 **Device: Huawai Ascemd Y300**  
 You are using `Android Browser` on a `Huawai Ascemd Y300` running `Android 4.1.1`
