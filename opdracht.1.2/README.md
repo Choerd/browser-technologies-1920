@@ -24,12 +24,13 @@ You are using `Internet Explorer 11.0` on a `Windows RT 8.1`
 
 ## Three different browsers 
 
-
 **Geteste features:**
 * Afbeeldingen uitzetten
 * Muis/Trackpad werkt niet
 * Breedband internet uitzetten
 * Kleur uitzetten & kleurenblindheid instellen
+* JavaScript uitzetten
+* LocalStorage en Cookies uitzetten
 
 **Browsers**
 <details><summary>Lijst</summary>
@@ -126,5 +127,25 @@ Om mijn website te verbeteren zou ik kunnen overstappen van `wit op rood` naar `
 
 <hr>
 
+### Javascript uitzetten
+`Wat doet de browser`:
+Aangezien mijn HTML wordt opgebouwd vanuit JavaScript werkt mijn gehele applicatie niet.
 
+`De oplossing voor alle browsers`:
+Zorg ervoor dat alle HTML wordt gemaakt serverside. Hierdoor kun je gewoon de website gebruiken en client side JavaScript gebruiken de interacties fijner te maken, Progressive Enhancement.
 
+<hr>
+
+### LocalStorage en Cookies uitzetten
+`Wat doet de browser`:
+In mijn website gebruik ik geen LocalStorage of Cookies aangezien dit een snel gemaakte website is en ik elke keer een nieuwe fetch doe aan de hand van de query. De API is wel zo gebouwd dat hij herkent welke data je al eerder hebt opgevraagd en dit de volgende keren sneller teruggeeft.
+
+`De oplossing voor alle browsers`:
+Ik zou eigenlijk geen goede oplossing hebben om dit op te vangen. Dit vond ik ook best lastig uit de bespreking met de klas te halen. Het maakt de website vooral meer persoonlijk.
+
+<hr>
+
+### Mijn Screenreader Experience
+Het voor laten lezen door een screenreader was moeilijk dan gedacht omdat je heel veel verschillende instellingen hebt. Ik heb het uiteindelijk voor elkaar gekregen om mij dingen voor te laten lezen alleen praatte de screenreader in het Engels tegen me en de tekst was Nederlands, dat klonk heel raar.
+
+Ook kwam ik er hierdoor achter door sommige dingen niet semantisch te hebben toegevoegd in de HTML dit heel veel invloed had op het lezen met een screenreader. Zo had ik bijvoorbeeld een feature waarmee je boeken aan en uit kon zetten, deze hadden alleen geen `<a>` tag en waren hierdoor niet indexeerbaar. 
