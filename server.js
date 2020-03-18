@@ -6,8 +6,8 @@ const app = express()
 app.use(express.static('static'))
 
 // Declare template engine and path
-app.set('view engine', 'ejs');
-app.set('views', 'templates');
+app.set('view engine', 'ejs')
+app.set('views', 'templates')
 
 // Routes
 app.get('/', (req, res) => res.render('home'))
