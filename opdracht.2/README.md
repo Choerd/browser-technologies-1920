@@ -1,12 +1,19 @@
 # Browser Technologies @cmda-minor-web 1920
 
 
-**Homescreen**
+**Homescreen**  
+Hier geef ik de optie aan de gebruiker om te beginnen vanaf het begin of verder te kunnen gaan waar hij/zij was gebleven.
+
 <details><summary>Afbeelding - Home</summary>
 	
 <img src="https://user-images.githubusercontent.com/45365598/76962044-bf70d680-691e-11ea-9d10-6c9d998f9d81.png">
 
 </details>
+
+<hr>
+
+**Persoonlijke code**  
+Aan de hand van gegenereerde code kan de gebruiker wanneer hij opnieuw op de site komt doorgaan met het invullen van de gegevens of naar de eindpagina.
 
 <details><summary>Afbeelding - Persoonlijke code | Genereren </summary>
 
@@ -19,6 +26,11 @@
 <img src="https://user-images.githubusercontent.com/45365598/76962117-e6c7a380-691e-11ea-8c4c-3ffee811419a.png">
 
 </details>
+
+<hr>
+
+**De enquete/vriendenboek**  
+Door middel van verschillende pagina's/routes leid ik de gebruiker door het formulier heen. Dit gebeurt door middel van het opdelen in categorieën.
 
 <details><summary>Afbeelding - Over jou</summary>
 
