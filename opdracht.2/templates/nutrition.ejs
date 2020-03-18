@@ -1,0 +1,29 @@
+<%- include ('../components/head') %>
+
+<h1>Eetgewoonten</h1>
+
+<form>
+    <label for="question_1">Mijn lievelingseten is</label>
+    <input id="question_1" type="text" autocomplete="off">
+
+    <label for="question_2">Als ik mag kiezen eet ik het liefst</label>
+    <input id="candy" type="radio" value="candy" name="favorite">
+    <label for="candy">Snoep</label>
+    <input id="chips" type="radio" value="chips" name="favorite">
+    <label for="chips">Chips</label>
+    <input id="chocolate" type="radio" value="chocolate" name="favorite">
+    <label for="chocolate">Chocolade</label>
+    <input id="drop" type="radio" value="drop" name="favorite">
+    <label for="drop">Drop</label>
+
+    <label for="question_3">Als ik mijn eetpatroon een cijfer moest geven</label>
+    <input id="question_3" type="range" autocomplete="off" min="1" max="10">
+
+    <label for="question_4">Mijn lievelingsdrinken is</label>
+    <input id="question_4" type="text" autocomplete="off">
+</form>
+
+<a href="/personal">Persoonlijk</a>
+<a href="/money">Geld</a>
+
+<%- include ('../components/footer') %>

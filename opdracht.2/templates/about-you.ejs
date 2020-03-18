@@ -1,0 +1,33 @@
+<%- include ('../components/head') %>
+
+<h1>Over jou</h1>
+
+<form>
+    <label for="name">Naam</label>
+    <input id="name" type="text" autocomplete="off">
+
+    <label for="age">Leeftijd</label>
+    <input id="age" type="number" autocomplete="off">
+
+    <label>Gender</label>
+    <label for="male">Man</label>
+    <input id="male" type="radio" value="male" name="gender">
+    <label for="female">Vrouw</label>
+    <input id="female" type="radio" value="female" name="gender">
+
+    <label for="place">Woonplaats</label>
+    <input id="place" type="text" autocomplete="off">
+
+    <label for="phone">Telefoon</label>
+    <input id="phone" type="tel" autocomplete="off">
+
+    <label for="email">Email</label>
+    <input id="email" type="email" autocomplete="off">
+
+    <label for="color">Lievelingskleur</label>
+    <input id="color" type="color" autocomplete="off">
+</form>
+
+<a href="/personal">Persoonlijk</a>
+
+<%- include ('../components/footer') %>
