@@ -3,34 +3,45 @@
 <h1>Over jou</h1>
 
 <form method="post" action="/personal">
-    <label for="name">Naam</label>
-    <input id="name" type="text" autocomplete="off" name="name">
+    <label>Naam
+        <input type="text" autocomplete="off" name="name" required>
+    </label>
 
-    <label for="age">Leeftijd</label>
-    <input id="age" type="text" autocomplete="off" name="age">
+    <label>Leeftijd
+        <input type="text" autocomplete="off" name="age" required>
+    </label>
 
-    <label>Gender</label>
-    <label for="male">Man</label>
-    <input id="male" type="radio" value="male" name="gender">
-    <label for="female">Vrouw</label>
-    <input id="female" type="radio" value="female" name="gender">
+    <fieldset>
+        <legend>Gender</legend>
+        <label>Man
+            <input type="radio" value="male" name="gender" required>
+        </label>
+        <label>Vrouw
+            <input type="radio" value="female" name="gender" required>
+        </label>
+    </fieldset>
 
-    <label for="place">Woonplaats</label>
-    <input id="place" type="text" autocomplete="off" name="place">
+    <label>Woonplaats
+        <input type="text" autocomplete="off" name="place" required>
+    </label>
 
-    <label for="phone">Telefoon</label>
-    <input id="phone" type="tel" autocomplete="off" name="phone">
+    <label>Telefoon
+        <input type="tel" autocomplete="off" name="phone" required>
+    </label>
 
-    <label for="email">Email</label>
-    <input id="email" type="email" autocomplete="off" name="email">
+    <label>Email
+        <input type="email" autocomplete="off" name="email" required>
+    </label>
 
-    <label for="color">Lievelingskleur</label>
-    <input id="color" type="color" autocomplete="off" name="color">
+    <label>Lievelingskleur
+        <input type="color" autocomplete="off" name="color" required>
+    </label>
 
-    <!-- Submit -->
-    <input type="submit" value="Persoonlijk">
+    <!-- Navigation -->
+    <nav>
+        <input type="submit" value="Persoonlijk">
+    </nav>
+
 </form>
-
-<!-- <a href="/personal">Persoonlijk</a> -->
 
 <%- include ('../components/footer') %>

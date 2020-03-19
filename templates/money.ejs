@@ -2,21 +2,28 @@
 
 <h1>Geld</h1>
 
-<form>
-    <label for="question_1">Ik geef mijn geld het liefst uit aan</label>
-    <input id="question_1" type="text" autocomplete="off">
+<form method="post" action="/conclusion">
+    <label>Ik geef mijn geld het liefst uit aan
+        <input type="text" autocomplete="off" name="question1" required>
+    </label>
 
-    <label for="question_2">Ik ben aan het sparen voor</label>
-    <input id="question_2" type="text" autocomplete="off">
+    <label>Ik ben aan het sparen voor
+        <input type="text" autocomplete="off" name="question2" required>
+    </label>
 
-    <label for="question_3">Mijn eerste baantje was</label>
-    <input id="question_3" type="text" autocomplete="off">
+    <label>Mijn eerste baantje was
+        <input type="text" autocomplete="off" name="question3" required>
+    </label>
 
-    <label for="question_4">Het duurste wat ik ooit heb gekocht</label>
-    <input id="question_4" type="text" autocomplete="off">
+    <label>Het duurste wat ik ooit heb gekocht
+        <input type="text" autocomplete="off" name="question4" required>
+    </label>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/nutrition">Eetgewoonten</a>
+        <input type="submit" value="Conclusie">
+    </nav>
 </form>
-
-<a href="/nutrition">Eetgewoonten</a>
-<a href="/conclusion">Conclusie</a>
 
 <%- include ('../components/footer') %>

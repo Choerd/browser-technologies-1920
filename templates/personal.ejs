@@ -2,24 +2,32 @@
 
 <h1>Persoonlijk</h1>
 
-<form>
-    <label for="question_1">Ik lach het hardst om</label>
-    <input id="question_1" type="text" autocomplete="off">
+<form method="post" action="/nutrition">
+    <label>Ik lach het hardst om
+        <input type="text" autocomplete="off" name="question1" required>
+    </label>
 
-    <label for="question_2">Ik ben bang voor</label>
-    <input id="question_2" type="text" autocomplete="off">
+    <label>Ik ben bang voor
+        <input type="text" autocomplete="off" name="question2" required>
+    </label>
 
-    <label for="question_3">Ik ben het gelukkigst als ik</label>
-    <input id="question_3" type="text" autocomplete="off">
+    <label>Ik ben het gelukkigst als ik
+        <input type="text" autocomplete="off" name="question3" required>
+    </label>
 
-    <label for="question_4">Ik kan niet leven zonder</label>
-    <input id="question_4" type="text" autocomplete="off">
+    <label>Ik kan niet leven zonder
+        <input type="text" autocomplete="off" name="question4" required>
+    </label>
 
-    <label for="question_5">Stiekem denk ik nog wel eens terug aan</label>
-    <input id="question_5" type="text" autocomplete="off">
+    <label>Stiekem denk ik nog wel eens terug aan
+        <input type="text" autocomplete="off" name="question5" required>
+    </label>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/about-you">Over jou</a>
+        <input type="submit" value="Eetgewoonten">
+    </nav>
 </form>
-
-<a href="/about-you">Over jou</a>
-<a href="/nutrition">Eetgewoonten</a>
 
 <%- include ('../components/footer') %>

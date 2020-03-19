@@ -2,28 +2,44 @@
 
 <h1>Eetgewoonten</h1>
 
-<form>
-    <label for="question_1">Mijn lievelingseten is</label>
-    <input id="question_1" type="text" autocomplete="off">
+<form method="post" action="/money">
+    <label>Mijn lievelingseten is
+        <input type="text" autocomplete="off" name="question1">
+    </label>
 
-    <label for="question_2">Als ik mag kiezen eet ik het liefst</label>
-    <input id="candy" type="radio" value="candy" name="favorite">
-    <label for="candy">Snoep</label>
-    <input id="chips" type="radio" value="chips" name="favorite">
-    <label for="chips">Chips</label>
-    <input id="chocolate" type="radio" value="chocolate" name="favorite">
-    <label for="chocolate">Chocolade</label>
-    <input id="drop" type="radio" value="drop" name="favorite">
-    <label for="drop">Drop</label>
+    <fieldset>
+        <legend>Als ik mag kiezen eet ik het liefst</legend>
+        <label>
+            <input type="radio" value="candy" name="question2" required>
+            Snoep
+        </label>
+        <label>
+            <input type="radio" value="chips" name="question2" required>
+            Chips
+        </label>
+        <label>
+            <input type="radio" value="chocolate" name="question2" required>
+            Chocolade
+        </label>
+        <label>
+            <input type="radio" value="drop" name="question2" required>
+            Drop
+        </label>
+    </fieldset>
 
-    <label for="question_3">Als ik mijn eetpatroon een cijfer moest geven</label>
-    <input id="question_3" type="range" autocomplete="off" min="1" max="10">
+    <label>Als ik mijn eetpatroon een cijfer moest geven
+        <input type="range" autocomplete="off" min="1" max="10" name="question3" required>
+    </label>
 
-    <label for="question_4">Mijn lievelingsdrinken is</label>
-    <input id="question_4" type="text" autocomplete="off">
+    <label>Mijn lievelingsdrinken is
+        <input type="text" autocomplete="off" name="question4" required>
+    </label>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/personal">Persoonlijk</a>
+        <input type="submit" value="Money">
+    </nav>
 </form>
-
-<a href="/personal">Persoonlijk</a>
-<a href="/money">Geld</a>
 
 <%- include ('../components/footer') %>

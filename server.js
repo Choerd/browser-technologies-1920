@@ -1,10 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const urlencodedParser = bodyParser.urlencoded({ extended: true })
 const fs = require('file-system')
 const port = process.env.PORT || 4000
 const app = express()
 
-const urlencodedParser = bodyParser.urlencoded({ extended: true })
+const generator = require('generate-password');
 
 // Static assets folder
 app.use(express.static('static'))
@@ -14,30 +15,102 @@ app.set('view engine', 'ejs')
 app.set('views', 'templates')
 
 // Routes
-app.get('/', (req, res) => res.render('home'))
-app.get('/generate-user-code', (req, res) => res.render('generate-user-code'))
-app.get('/use-user-code', (req, res) => res.render('use-user-code'))
-app.get('/about-you', (req, res) => res.render('about-you'))
+app
+    .get('/', (req, res) => res.render('home'))
 
-app.get('/personal', (req, res) => res.render('personal'))
-app.post('/personal', urlencodedParser, (req, res) => {
+    .get('/generate-user-code', (req, res) => {
+        const usercode = generator.generate({
+            length: 6,
+            numbers: true,
+            uppercase: true
+        })
 
-    // formdata = req.body
-    const data = JSON.stringify(req.body, null, 2)
-    fs.writeFileSync('users/data.json', data)
+        res.render('generate-user-code', {
+            usercode
+        })
+    })
+    .get('/use-user-code', (req, res) => res.render('use-user-code'))
 
-    const read = fs.readFileSync('users/data.json')
-    const data2 = JSON.parse(read)
-    console.log(data2)
+    .get('/about-you', (req, res) => res.render('about-you'))
+    .post('/about-you', urlencodedParser, (req, res) => {
+        setup(req.body)
+        res.render('about-you')
+    })
 
+    .get('/personal', (req, res) => res.render('personal'))
+    .post('/personal', urlencodedParser, (req, res) => {
+        addDataToArray(req.body, 'about-you')
+        res.render('personal')
+    })
 
-    res.render('personal')
-})
+    .get('/nutrition', (req, res) => res.render('nutrition'))
+    .post('/nutrition', urlencodedParser, (req, res) => {
+        addDataToArray(req.body, 'personal')
+        res.render('nutrition')
+    })
 
-// (req, res) => res.render('personal'))
+    .get('/money', (req, res) => res.render('money'))
+    .post('/money', urlencodedParser, (req, res) => {
+        addDataToArray(req.body, 'nutrition')
+        res.render('money')
+    })
 
-app.get('/nutrition', (req, res) => res.render('nutrition'))
-app.get('/money', (req, res) => res.render('money'))
-app.get('/conclusion', (req, res) => res.render('conclusion'))
+    .get('/conclusion', (req, res) => res.render('conclusion'))
+    .post('/conclusion', urlencodedParser, (req, res) => {
+        addDataToArray(req.body, 'money')
+        res.render('conclusion')
+    })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}`))
+
+function addDataToArray(data, name) {
+    const json = readFromJson()
+    json[0][`${name}`] = data
+    writeToJson(json)
+}
+
+function readFromJson() {
+    const readFile = fs.readFileSync('users/data.json')
+    return JSON.parse(readFile)
+}
+
+function writeToJson(data) {
+    const content = JSON.stringify(data, null, 2)
+    fs.writeFileSync('users/data.json', content)
+}
+
+function setup(data) {
+    const json = readFromJson()
+    const usercode = data.usercode
+
+    if (json.length === 0) {
+        json.push({ 'user-id': usercode })
+
+        const user = JSON.stringify(json, null, 2)
+        fs.writeFileSync('users/data.json', user)
+    }
+    return json
+}
+
+function createObject(data, name) {
+    return data
+}
+
+
+function readAndWrite(formData, objectName) {
+    const object = {
+        page: objectName,
+        data: formData
+    }
+
+    // Writefile
+    const userdata = JSON.stringify(object, null, 2)
+    fs.writeFileSync('users/data.json', userdata)
+
+    // Readfile
+    const readFile = fs.readFileSync('users/data.json')
+    const parsedData = JSON.parse(readFile)
+
+    console.log(parsedData)
+    return parsedData
+}
