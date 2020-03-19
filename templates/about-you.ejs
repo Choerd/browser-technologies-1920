@@ -2,12 +2,12 @@
 
 <h1>Over jou</h1>
 
-<form>
+<form method="post" action="/personal">
     <label for="name">Naam</label>
-    <input id="name" type="text" autocomplete="off">
+    <input id="name" type="text" autocomplete="off" name="name">
 
     <label for="age">Leeftijd</label>
-    <input id="age" type="number" autocomplete="off">
+    <input id="age" type="text" autocomplete="off" name="age">
 
     <label>Gender</label>
     <label for="male">Man</label>
@@ -16,18 +16,21 @@
     <input id="female" type="radio" value="female" name="gender">
 
     <label for="place">Woonplaats</label>
-    <input id="place" type="text" autocomplete="off">
+    <input id="place" type="text" autocomplete="off" name="place">
 
     <label for="phone">Telefoon</label>
-    <input id="phone" type="tel" autocomplete="off">
+    <input id="phone" type="tel" autocomplete="off" name="phone">
 
     <label for="email">Email</label>
-    <input id="email" type="email" autocomplete="off">
+    <input id="email" type="email" autocomplete="off" name="email">
 
     <label for="color">Lievelingskleur</label>
-    <input id="color" type="color" autocomplete="off">
+    <input id="color" type="color" autocomplete="off" name="color">
+
+    <!-- Submit -->
+    <input type="submit" value="Persoonlijk">
 </form>
 
-<a href="/personal">Persoonlijk</a>
+<!-- <a href="/personal">Persoonlijk</a> -->
 
 <%- include ('../components/footer') %>
