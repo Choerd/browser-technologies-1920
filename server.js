@@ -1,8 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const fs = require('file-system')
 const generator = require('generate-password')
-
 const port = process.env.PORT || 4000
 const urlencodedParser = bodyParser.urlencoded({ extended: true })
 const app = express()
@@ -14,84 +12,58 @@ app.use(express.static('static'))
 app.set('view engine', 'ejs')
 app.set('views', 'templates')
 
+// Exported functions
+const storage = require('./modules/storage.js')
+const generate = require('./modules/generate.js')
+
 // Routes
 app
     .get('/', (req, res) => res.render('home'))
 
     .get('/generate-user-code', (req, res) => {
-        const usercode = generator.generate({
-            length: 6,
-            numbers: true,
-            uppercase: true
-        })
-
+        const userid = generateUserID()
         res.render('generate-user-code', {
-            usercode
+            userid
         })
     })
+
     .get('/use-user-code', (req, res) => res.render('use-user-code'))
     .post('/use-user-code', urlencodedParser, (req, res) => {
         checkUsers(req.body)
-
-
         res.render('personal')
     })
 
     .get('/about-you', (req, res) => res.render('about-you'))
     .post('/about-you', urlencodedParser, (req, res) => {
-        setup(req.body)
+        storage.setup(req.body)
         res.render('about-you')
     })
 
     .get('/personal', (req, res) => res.render('personal'))
     .post('/personal', urlencodedParser, (req, res) => {
-        addDataToArray(req.body, 'about-you')
+        storage.addDataToArray(req.body, 'about-you')
         res.render('personal')
     })
 
     .get('/nutrition', (req, res) => res.render('nutrition'))
     .post('/nutrition', urlencodedParser, (req, res) => {
-        addDataToArray(req.body, 'personal')
+        storage.addDataToArray(req.body, 'personal')
         res.render('nutrition')
     })
 
     .get('/money', (req, res) => res.render('money'))
     .post('/money', urlencodedParser, (req, res) => {
-        addDataToArray(req.body, 'nutrition')
+        storage.addDataToArray(req.body, 'nutrition')
         res.render('money')
     })
 
     .get('/conclusion', (req, res) => res.render('conclusion'))
     .post('/conclusion', urlencodedParser, (req, res) => {
-        addDataToArray(req.body, 'money')
+        storage.addDataToArray(req.body, 'money')
         res.render('conclusion')
     })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}`))
-
-function addDataToArray(data, name) {
-    const json = readFromJson()
-    json[0][`${name}`] = data
-    writeToJson(json)
-}
-
-function readFromJson() {
-    const readFile = fs.readFileSync('users/data.json')
-    return JSON.parse(readFile)
-}
-
-function writeToJson(data) {
-    const content = JSON.stringify(data, null, 2)
-    fs.writeFileSync('users/data.json', content)
-}
-
-function setup(data) {
-    const json = readFromJson()
-    json.push({ 'id': data.usercode })
-    const user = JSON.stringify(json, null, 2)
-
-    fs.writeFileSync('users/data.json', user)
-}
 
 function checkUsers(input) {
     const json = readFromJson()
@@ -102,4 +74,12 @@ function checkUsers(input) {
     } else {
         console.log('bestaat niet')
     }
+}
+
+function generateUserID() {
+    return generator.generate({
+        length: 6,
+        numbers: true,
+        uppercase: true
+    })
 }

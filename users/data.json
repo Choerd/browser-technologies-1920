@@ -2,26 +2,32 @@
   {
     "id": "rSOtNX",
     "about-you": {
-      "name": "Sjors",
-      "age": "21",
-      "gender": "male",
-      "place": "Aalsmeer",
-      "phone": "0640202493",
-      "email": "sjorspieter@live.nl",
+      "name": "Iris Eveleens",
+      "age": "332",
+      "gender": "female",
+      "place": "aaa",
+      "phone": "0629865159",
+      "email": "eveleensiris@gmail.com",
       "color": "#000000"
     },
     "personal": {
-      "question1": "iets",
-      "question2": "iets",
-      "question3": "iets",
-      "question4": "iets",
-      "question5": "iets"
+      "question1": "awdawd",
+      "question2": "wad",
+      "question3": "awdaw",
+      "question4": "awdad",
+      "question5": "wadad"
     },
     "nutrition": {
-      "question1": "iets",
-      "question2": "drop",
+      "question1": "awdada",
+      "question2": "chips",
       "question3": "6",
-      "question4": "iets"
+      "question4": "awdaw"
+    },
+    "money": {
+      "question1": "awdaw",
+      "question2": "awawd",
+      "question3": "awdad",
+      "question4": "awdwa"
     }
   }
 ]
