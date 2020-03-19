@@ -1,32 +1,27 @@
 [
   {
-    "user-id": "U7msyb",
+    "id": "rSOtNX",
     "about-you": {
-      "name": "awdw",
+      "name": "Sjors",
       "age": "21",
       "gender": "male",
-      "place": "1",
-      "phone": "11",
-      "email": "11@live.nl",
+      "place": "Aalsmeer",
+      "phone": "0640202493",
+      "email": "sjorspieter@live.nl",
       "color": "#000000"
     },
     "personal": {
-      "question1": "niks",
-      "question2": "niks",
-      "question3": "niks",
-      "question4": "niks",
-      "question5": "niks"
+      "question1": "iets",
+      "question2": "iets",
+      "question3": "iets",
+      "question4": "iets",
+      "question5": "iets"
     },
     "nutrition": {
-      "question1": "",
+      "question1": "iets",
+      "question2": "drop",
       "question3": "6",
-      "question4": ""
-    },
-    "money": {
-      "question1": "",
-      "question2": "",
-      "question3": "",
-      "question4": ""
+      "question4": "iets"
     }
   }
 ]

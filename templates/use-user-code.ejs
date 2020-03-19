@@ -3,10 +3,9 @@
 <h1>Verder gaan</h1>
 <p>Vul hieronder je persoonlijk code in die je eerder hebt opgeslagen. Nu kan je verder met je vriendenboek!</p>
 
-<form>
-    <input type="text" autocomplete="off" placeholder="code">
+<form method="post">
+    <input type="text" autocomplete="off" placeholder="code" name="usercode">
+    <input type="submit" value="Verder">
 </form>
-
-<a href="/somewhere">Verder</a>
 
 <%- include ('../components/footer') %>

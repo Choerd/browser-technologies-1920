@@ -1,11 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const urlencodedParser = bodyParser.urlencoded({ extended: true })
 const fs = require('file-system')
-const port = process.env.PORT || 4000
-const app = express()
+const generator = require('generate-password')
 
-const generator = require('generate-password');
+const port = process.env.PORT || 4000
+const urlencodedParser = bodyParser.urlencoded({ extended: true })
+const app = express()
 
 // Static assets folder
 app.use(express.static('static'))
@@ -30,6 +30,12 @@ app
         })
     })
     .get('/use-user-code', (req, res) => res.render('use-user-code'))
+    .post('/use-user-code', urlencodedParser, (req, res) => {
+        checkUsers(req.body)
+
+
+        res.render('personal')
+    })
 
     .get('/about-you', (req, res) => res.render('about-you'))
     .post('/about-you', urlencodedParser, (req, res) => {
@@ -81,36 +87,19 @@ function writeToJson(data) {
 
 function setup(data) {
     const json = readFromJson()
-    const usercode = data.usercode
+    json.push({ 'id': data.usercode })
+    const user = JSON.stringify(json, null, 2)
 
-    if (json.length === 0) {
-        json.push({ 'user-id': usercode })
-
-        const user = JSON.stringify(json, null, 2)
-        fs.writeFileSync('users/data.json', user)
-    }
-    return json
+    fs.writeFileSync('users/data.json', user)
 }
 
-function createObject(data, name) {
-    return data
-}
+function checkUsers(input) {
+    const json = readFromJson()
+    const existingUser = json.find(user => user.id === input.usercode)
 
-
-function readAndWrite(formData, objectName) {
-    const object = {
-        page: objectName,
-        data: formData
+    if (existingUser) {
+        console.log('bestaat')
+    } else {
+        console.log('bestaat niet')
     }
-
-    // Writefile
-    const userdata = JSON.stringify(object, null, 2)
-    fs.writeFileSync('users/data.json', userdata)
-
-    // Readfile
-    const readFile = fs.readFileSync('users/data.json')
-    const parsedData = JSON.parse(readFile)
-
-    console.log(parsedData)
-    return parsedData
 }
