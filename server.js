@@ -28,10 +28,10 @@ app
 
     .get('/use-user-code', (req, res) => res.render('use-user-code'))
     .post('/use-user-code', urlencodedParser, (req, res) => {
-        checkUsers(req.body)
+        checkUsers(req.body, res)
 
         // res.render('pagina die ontbreekt', {userid meegeven})
-        res.render('personal')
+        // res.render('personal', { userid: req.body.usercode })
     })
 
     .get('/about-you', (req, res) => res.render('about-you'))
@@ -66,14 +66,19 @@ app
 
 app.listen(port, () => console.log(`Example app listening on port ${port}`))
 
-function checkUsers(input) {
-    const json = readFromJson()
-    const existingUser = json.find(user => user.id === input.usercode)
+
+function checkUsers(input, res) {
+    const json = storage.readFromJson()
+    const existingUser = json.find(user => user.id == input.userid)
 
     if (existingUser) {
-        console.log('bestaat')
+
+        console.log(existingUser)
+
+
+        res.render('about-you', { userid: existingUser.id })
     } else {
-        console.log('bestaat niet')
+        res.redirect('/generate-user-code')
     }
 }
 
