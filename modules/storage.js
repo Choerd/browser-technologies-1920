@@ -9,7 +9,10 @@ module.exports = {
 
 function addDataToArray(data, name) {
     const json = readFromJson()
-    json[0][`${name}`] = data
+    const user = json.find(user => user.id === data.userid)
+    const index = json.map((o) => o.id).indexOf(user.id)
+
+    json[index][`${name}`] = data
     writeToJson(json)
 }
 

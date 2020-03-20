@@ -29,31 +29,33 @@ app
     .get('/use-user-code', (req, res) => res.render('use-user-code'))
     .post('/use-user-code', urlencodedParser, (req, res) => {
         checkUsers(req.body)
+
+        // res.render('pagina die ontbreekt', {userid meegeven})
         res.render('personal')
     })
 
     .get('/about-you', (req, res) => res.render('about-you'))
     .post('/about-you', urlencodedParser, (req, res) => {
         storage.setup(req.body)
-        res.render('about-you')
+        res.render('about-you', { userid: req.body.usercode })
     })
 
     .get('/personal', (req, res) => res.render('personal'))
     .post('/personal', urlencodedParser, (req, res) => {
         storage.addDataToArray(req.body, 'about-you')
-        res.render('personal')
+        res.render('personal', { userid: req.body.userid })
     })
 
     .get('/nutrition', (req, res) => res.render('nutrition'))
     .post('/nutrition', urlencodedParser, (req, res) => {
         storage.addDataToArray(req.body, 'personal')
-        res.render('nutrition')
+        res.render('nutrition', { userid: req.body.userid })
     })
 
     .get('/money', (req, res) => res.render('money'))
     .post('/money', urlencodedParser, (req, res) => {
         storage.addDataToArray(req.body, 'nutrition')
-        res.render('money')
+        res.render('money', { userid: req.body.userid })
     })
 
     .get('/conclusion', (req, res) => res.render('conclusion'))

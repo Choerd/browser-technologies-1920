@@ -1,6 +1,16 @@
 # Browser Technologies @cmda-minor-web 1920
+**Case**  
+> Ik wil een enquete kunnen invullen over de minor Web Development, met verschillende antwoord mogelijkheden. Als ik de enquete niet afkrijg, wil ik later weer verder gaan met waar ik ben gebleven.
+
+**Mijn oplossing**  
+De gebruiker krijgt aan het begin van de applicatie de keuze om opnieuw te beginnen of verder te gaan waar hij was gebleven. Dit kan doormiddel van een unieke user ID. 
 
 
+## Concept
+
+## Code
+
+## "Wireflow"
 **Homescreen**  
 Hier geef ik de optie aan de gebruiker om te beginnen vanaf het begin of verder te kunnen gaan waar hij/zij was gebleven.
 
