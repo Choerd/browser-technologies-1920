@@ -14,7 +14,6 @@ app.set('views', 'templates')
 
 // Exported functions
 const storage = require('./modules/storage.js')
-const generate = require('./modules/generate.js')
 
 // Routes
 app
