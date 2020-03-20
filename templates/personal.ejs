@@ -1,35 +1,37 @@
 <%- include ('../components/head') %>
 
-<h1>Persoonlijk</h1>
+<main>
 
-<form method="post" action="/nutrition">
-    <label>Ik lach het hardst om
-        <input type="text" autocomplete="off" name="question1" required>
-    </label>
+    <h1>Persoonlijk</h1>
 
-    <label>Ik ben bang voor
-        <input type="text" autocomplete="off" name="question2" required>
-    </label>
+    <form method="post" action="/nutrition">
+        <label>Ik lach het hardst om
+            <input type="text" autocomplete="off" name="question1" required>
+        </label>
 
-    <label>Ik ben het gelukkigst als ik
-        <input type="text" autocomplete="off" name="question3" required>
-    </label>
+        <label>Ik ben bang voor
+            <input type="text" autocomplete="off" name="question2" required>
+        </label>
 
-    <label>Ik kan niet leven zonder
-        <input type="text" autocomplete="off" name="question4" required>
-    </label>
+        <label>Ik ben het gelukkigst als ik
+            <input type="text" autocomplete="off" name="question3" required>
+        </label>
 
-    <label>Stiekem denk ik nog wel eens terug aan
-        <input type="text" autocomplete="off" name="question5" required>
-    </label>
+        <label>Ik kan niet leven zonder
+            <input type="text" autocomplete="off" name="question4" required>
+        </label>
 
-    <input type="hidden" name="userid" value=<%= userid %>>
+        <label>Stiekem denk ik nog wel eens terug aan
+            <input type="text" autocomplete="off" name="question5" required>
+        </label>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="/about-you">Over jou</a>
-        <input type="submit" value="Eetgewoonten">
-    </nav>
-</form>
+        <input type="hidden" name="userid" value=<%= userid %>>
 
-<%- include ('../components/footer') %>
+        <!-- Navigation -->
+        <nav>
+            <a href="/about-you">Over jou</a>
+            <input type="submit" value="Eetgewoonten">
+        </nav>
+    </form>
+
+    <%- include ('../components/footer') %>

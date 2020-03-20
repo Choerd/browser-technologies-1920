@@ -1,49 +1,51 @@
 <%- include ('../components/head') %>
 
-<h1>Over jou</h1>
+<main>
 
-<form method="post" action="/personal">
-    <label>Naam
-        <input type="text" autocomplete="off" name="name" required>
-    </label>
+    <h1>Over jou</h1>
 
-    <label>Leeftijd
-        <input type="text" autocomplete="off" name="age" required>
-    </label>
-
-    <fieldset>
-        <legend>Gender</legend>
-        <label>Man
-            <input type="radio" value="male" name="gender" required>
+    <form method="post" action="/personal">
+        <label>Naam
+            <input type="text" autocomplete="off" name="name" required>
         </label>
-        <label>Vrouw
-            <input type="radio" value="female" name="gender" required>
+
+        <label>Leeftijd
+            <input type="text" autocomplete="off" name="age" required>
         </label>
-    </fieldset>
 
-    <label>Woonplaats
-        <input type="text" autocomplete="off" name="place" required>
-    </label>
+        <fieldset>
+            <legend>Gender</legend>
+            <label>Man
+                <input type="radio" value="male" name="gender" required>
+            </label>
+            <label>Vrouw
+                <input type="radio" value="female" name="gender" required>
+            </label>
+        </fieldset>
 
-    <label>Telefoon
-        <input type="tel" autocomplete="off" name="phone" required>
-    </label>
+        <label>Woonplaats
+            <input type="text" autocomplete="off" name="place" required>
+        </label>
 
-    <label>Email
-        <input type="email" autocomplete="off" name="email" required>
-    </label>
+        <label>Telefoon
+            <input type="tel" autocomplete="off" name="phone" required>
+        </label>
 
-    <label>Lievelingskleur
-        <input type="color" autocomplete="off" name="color" required>
-    </label>
+        <label>Email
+            <input type="email" autocomplete="off" name="email" required>
+        </label>
 
-    <input type="hidden" name="userid" value=<%= userid %>>
+        <label>Lievelingskleur
+            <input type="color" autocomplete="off" name="color" required>
+        </label>
 
-    <!-- Navigation -->
-    <nav>
-        <input type="submit" value="Persoonlijk">
-    </nav>
+        <input type="hidden" name="userid" value=<%= userid %>>
 
-</form>
+        <!-- Navigation -->
+        <nav>
+            <input type="submit" value="Persoonlijk">
+        </nav>
 
-<%- include ('../components/footer') %>
+    </form>
+
+    <%- include ('../components/footer') %>

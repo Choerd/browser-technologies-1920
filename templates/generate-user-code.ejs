@@ -1,11 +1,14 @@
 <%- include ('../components/head') %>
 
-<h1>Je persoonlijke code</h1>
-<p>Wil je later verdergaan met de ingevulde gegevens? Bewaar deze code dan en vul deze bij je volgende bezoek in. </p>
+<main>
 
-<form method="post" action="/about-you">
-    <input type="text" autocomplete="off" name="usercode" value="<%= userid %>" readonly>
-    <input type="submit" value="Beginnen">
-</form>
+    <h1>Je persoonlijke code</h1>
+    <p>Wil je later verdergaan met de ingevulde gegevens? Bewaar deze code dan en vul deze bij je volgende bezoek in.
+    </p>
 
-<%- include ('../components/footer') %>
+    <form method="post" action="/about-you">
+        <input type="text" autocomplete="off" name="usercode" value="<%= userid %>" readonly>
+        <input type="submit" value="Beginnen">
+    </form>
+
+    <%- include ('../components/footer') %>

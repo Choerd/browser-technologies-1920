@@ -1,31 +1,33 @@
 <%- include ('../components/head') %>
 
-<h1>Geld</h1>
+<main>
 
-<form method="post" action="/conclusion">
-    <label>Ik geef mijn geld het liefst uit aan
-        <input type="text" autocomplete="off" name="question1" required>
-    </label>
+    <h1>Geld</h1>
 
-    <label>Ik ben aan het sparen voor
-        <input type="text" autocomplete="off" name="question2" required>
-    </label>
+    <form method="post" action="/conclusion">
+        <label>Ik geef mijn geld het liefst uit aan
+            <input type="text" autocomplete="off" name="question1" required>
+        </label>
 
-    <label>Mijn eerste baantje was
-        <input type="text" autocomplete="off" name="question3" required>
-    </label>
+        <label>Ik ben aan het sparen voor
+            <input type="text" autocomplete="off" name="question2" required>
+        </label>
 
-    <label>Het duurste wat ik ooit heb gekocht
-        <input type="text" autocomplete="off" name="question4" required>
-    </label>
+        <label>Mijn eerste baantje was
+            <input type="text" autocomplete="off" name="question3" required>
+        </label>
 
-    <input type="hidden" name="userid" value=<%= userid %>>
+        <label>Het duurste wat ik ooit heb gekocht
+            <input type="text" autocomplete="off" name="question4" required>
+        </label>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="/nutrition">Eetgewoonten</a>
-        <input type="submit" value="Conclusie">
-    </nav>
-</form>
+        <input type="hidden" name="userid" value=<%= userid %>>
 
-<%- include ('../components/footer') %>
+        <!-- Navigation -->
+        <nav>
+            <a href="/nutrition">Eetgewoonten</a>
+            <input type="submit" value="Conclusie">
+        </nav>
+    </form>
+
+    <%- include ('../components/footer') %>
