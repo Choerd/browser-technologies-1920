@@ -88,5 +88,15 @@ Door middel van verschillende pagina's/routes leid ik de gebruiker door het form
 
 <hr>
 
+## Install notes
+1. Clone de repo van Github
+2. `https://github.com/Choerd/browser-technologies-1920.git`
+3. Installeer of zorg ervoor dat je `nodejs` en `npm` geinstalleerd hebt.
+4. Installeer alle node modules met `npm install`
+5. Gebruik de applicatie met `npm start`
+6. Open een browser en ga naar `http://localhost:4000/`
+
+<hr>
+
 ## Credits
 `None...`
