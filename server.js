@@ -11,7 +11,7 @@ app.use(express.static('static'))
 app.set('view engine', 'ejs')
 app.set('views', 'templates')
 
-// Exported functions
+// Imported functions
 const storage = require('./modules/storage.js')
 const generate = require('./modules/generate.js')
 const user = require('./modules/user.js')
