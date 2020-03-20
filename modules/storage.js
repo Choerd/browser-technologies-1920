@@ -17,13 +17,13 @@ function addDataToArray(data, name) {
 }
 
 function readFromJson() {
-    const readFile = fs.readFileSync('users/data.json')
+    const readFile = fs.readFileSync('data/users.json')
     return JSON.parse(readFile)
 }
 
 function writeToJson(data) {
     const content = JSON.stringify(data, null, 2)
-    fs.writeFileSync('users/data.json', content)
+    fs.writeFileSync('data/users.json', content)
 }
 
 function setup(data) {
