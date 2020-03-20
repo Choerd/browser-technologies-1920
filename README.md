@@ -1,24 +1,27 @@
 # Browser Technologies @cmda-minor-web 1920
 
-
-**Ik wil feedback op:**  
-* [ ] Option A
-* [ ] Option B
-* [ ] Option C
+## Inhoudsopgave
+* [Introductie](#Introductie)
+* [Wireflow](#"Wireflow")
+* [Code](#Code)
+* [Install notes](#Install-notes)
+* [Credits](#Credits)
 
 <hr>
 
-## Introduction
+**Ik wil feedback op:**  
+* [ ] Idee(ën) voor pleasurable laag
+* [ ] Verbeteringen voor mijn HTML formulier
+
+<hr>
+
+## Introductie
 
 **Case**  
 `"Ik wil een enquete kunnen invullen over de minor Web Development, met verschillende antwoord mogelijkheden. Als ik de enquete niet afkrijg, wil ik later weer verder gaan met waar ik ben gebleven."`
 
 **Mijn oplossing**  
 De gebruiker krijgt aan het begin van de applicatie de keuze om opnieuw te beginnen of verder te gaan waar hij was gebleven. Dit kan doormiddel van een unieke user ID. De data wordt opgeslagen in een json file waar ik elke keer data naar toe stuur. Wanneer de gebruiker weggaat kan ik zien waar hij/zij gebleven is en de gebruiker naar de pagina sturen die nog niet volledig is ingevuld.
-
-<hr>
-
-## Code
 
 <hr>
 
@@ -77,3 +80,13 @@ Door middel van verschillende pagina's/routes leid ik de gebruiker door het form
 <img src="https://user-images.githubusercontent.com/45365598/76962105-e16a5900-691e-11ea-9105-79b9364bb6cc.png">
 
 </details>
+
+<hr>
+
+## Code
+`Hier komen voorbeelden van gelezen artikelen en hoe ik dit op mijn code heb toegepast`
+
+<hr>
+
+## Credits
+`None...`
