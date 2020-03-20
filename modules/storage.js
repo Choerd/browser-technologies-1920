@@ -7,13 +7,15 @@ module.exports = {
     setup
 }
 
-function addDataToArray(data, name) {
+function addDataToArray(data, name, route, res) {
     const json = readFromJson()
     const user = json.find(user => user.id === data.userid)
     const index = json.map((o) => o.id).indexOf(user.id)
 
     json[index][`${name}`] = data
     writeToJson(json)
+
+    res.render(route, { userid: data.userid })
 }
 
 function readFromJson() {
@@ -26,8 +28,9 @@ function writeToJson(data) {
     fs.writeFileSync('data/users.json', content)
 }
 
-function setup(data) {
+function setup(data, res) {
     const json = readFromJson()
     json.push({ 'id': data.usercode })
     writeToJson(json)
+    res.render('about-you', { userid: data.usercode })
 }

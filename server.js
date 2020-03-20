@@ -27,59 +27,40 @@ app
     })
 
     .get('/use-user-code', (req, res) => res.render('use-user-code'))
-    .post('/use-user-code', urlencodedParser, (req, res) => {
-        checkUsers(req.body, res)
-
-        // res.render('pagina die ontbreekt', {userid meegeven})
-        // res.render('personal', { userid: req.body.usercode })
-    })
-
-    .get('/about-you', (req, res) => res.render('about-you'))
-    .post('/about-you', urlencodedParser, (req, res) => {
-        storage.setup(req.body)
-        res.render('about-you', { userid: req.body.usercode })
-    })
-
-    .get('/personal', (req, res) => res.render('personal'))
-    .post('/personal', urlencodedParser, (req, res) => {
-        storage.addDataToArray(req.body, 'about-you')
-        res.render('personal', { userid: req.body.userid })
-    })
-
-    .get('/nutrition', (req, res) => res.render('nutrition'))
-    .post('/nutrition', urlencodedParser, (req, res) => {
-        storage.addDataToArray(req.body, 'personal')
-        res.render('nutrition', { userid: req.body.userid })
-    })
-
-    .get('/money', (req, res) => res.render('money'))
-    .post('/money', urlencodedParser, (req, res) => {
-        storage.addDataToArray(req.body, 'nutrition')
-        res.render('money', { userid: req.body.userid })
-    })
-
-    .get('/conclusion', (req, res) => res.render('conclusion'))
-    .post('/conclusion', urlencodedParser, (req, res) => {
-        storage.addDataToArray(req.body, 'money')
-        res.render('conclusion')
-    })
+    .post('/use-user-code', urlencodedParser, (req, res) => checkUser(req.body, res))
+    .post('/about-you', urlencodedParser, (req, res) => storage.setup(req.body, res))
+    .post('/personal', urlencodedParser, (req, res) => storage.addDataToArray(req.body, 'about-you', 'personal', res))
+    .post('/nutrition', urlencodedParser, (req, res) => storage.addDataToArray(req.body, 'about-you', 'nutrition', res))
+    .post('/money', urlencodedParser, (req, res) => storage.addDataToArray(req.body, 'about-you', 'money', res))
+    .post('/conclusion', urlencodedParser, (req, res) => storage.addDataToArray(req.body, 'about-you', 'conclusion', res))
 
 app.listen(port, () => console.log(`Example app listening on port ${port}`))
 
 
-function checkUsers(input, res) {
+function checkUser(input, res) {
+    getUser(input) ? renderNewRoute(input, res) : res.redirect('/generate-user-code')
+}
+
+function getUser(input) {
     const json = storage.readFromJson()
-    const existingUser = json.find(user => user.id == input.userid)
+    return json.find(user => user.id == input.userid)
+}
+
+function renderNewRoute(input, res) {
+    const existingUser = getUser(input)
+    let unanswerdCategories = []
 
     if (existingUser) {
+        const allcategories = ['about-you', 'personal', 'nutrition', 'money', 'conclusion']
 
-        console.log(existingUser)
-
-
-        res.render('about-you', { userid: existingUser.id })
-    } else {
-        res.redirect('/generate-user-code')
+        allcategories.forEach(category => {
+            if (!(category in existingUser)) {
+                unanswerdCategories.push(category)
+            }
+        })
     }
+
+    res.render(unanswerdCategories[0], { userid: existingUser.id })
 }
 
 function generateUserID() {
