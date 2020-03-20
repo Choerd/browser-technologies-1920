@@ -2,8 +2,6 @@ const fs = require('file-system')
 
 module.exports = {
     addDataToArray,
-    readFromJson,
-    writeToJson,
     setup
 }
 
