@@ -1,33 +1,35 @@
 <%- include ('../components/head') %>
 
-<main>
+<main class="money">
 
-    <h1>Geld</h1>
+    <section>
+        <h1>Geld</h1>
 
-    <form method="post" action="/conclusion">
-        <label>Ik geef mijn geld het liefst uit aan
-            <input type="text" autocomplete="off" name="question1" required>
-        </label>
+        <form method="post" action="/conclusion">
+            <label>Ik geef mijn geld het liefst uit aan
+                <input type="text" autocomplete="off" name="question1" required>
+            </label>
 
-        <label>Ik ben aan het sparen voor
-            <input type="text" autocomplete="off" name="question2" required>
-        </label>
+            <label>Ik ben aan het sparen voor
+                <input type="text" autocomplete="off" name="question2" required>
+            </label>
 
-        <label>Mijn eerste baantje was
-            <input type="text" autocomplete="off" name="question3" required>
-        </label>
+            <label>Mijn eerste baantje was
+                <input type="text" autocomplete="off" name="question3" required>
+            </label>
 
-        <label>Het duurste wat ik ooit heb gekocht
-            <input type="text" autocomplete="off" name="question4" required>
-        </label>
+            <label>Het duurste wat ik ooit heb gekocht
+                <input type="text" autocomplete="off" name="question4" required>
+            </label>
 
-        <input type="hidden" name="userid" value=<%= userid %>>
+            <input type="hidden" name="userid" value=<%= userid %>>
 
-        <!-- Navigation -->
-        <nav>
-            <a href="/nutrition">Eetgewoonten</a>
-            <input type="submit" value="Conclusie">
-        </nav>
-    </form>
+            <!-- Navigation -->
+            <nav>
+                <a href="/nutrition">Eetgewoonten</a>
+                <button type="submit" value="conclusion">Conclusie</button>
+            </nav>
+        </form>
+    </section>
 
     <%- include ('../components/footer') %>

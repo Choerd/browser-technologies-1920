@@ -8,6 +8,7 @@
     padding: 6vh 3vw;
     max-width: 320px;
     margin: auto;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
 }
 
 [start-options] a:last-of-type {
@@ -19,11 +20,8 @@
     transform: translateY(-4px);
 }
 
-
-@supports (box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45)) {
-    [start-options] a {
-        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
-    }
+.home section {
+    width: 100%;
 }
 
 @supports (padding: 1vw) {
@@ -33,10 +31,6 @@
 
     header, footer {
         padding: 20px 5vw;
-    }
-
-    section {
-        width: 100vw;
     }
 }
 

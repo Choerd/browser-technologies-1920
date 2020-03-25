@@ -1,5 +1,10 @@
 @import 'reset.css';
 @import 'home.css';
+@import 'user-code.css';
+@import 'about-you.css';
+@import 'personal.css';
+/* @import 'personal.css'; */
+@import 'money.css';
 
 body {
     font-family: Lato, Arial, Helvetica, sans-serif;

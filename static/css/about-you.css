@@ -1,0 +1,68 @@
+.about-you section {
+    max-width: 600px;
+    margin: auto;
+    padding: 0px 20px;
+}
+
+.about-you h1 {
+    font-size: max(2vw, 24px);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.about-you form label input {
+    margin: 4px 0px 12px 0px;
+}
+
+.about-you form label input {
+    display: block;
+    width: 100%;
+    padding: 12px 8px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
+}
+
+.about-you form fieldset, .about-you form fieldset legend {
+    margin-bottom: 8px;
+}
+
+.about-you form fieldset label input {
+    display: inline;
+    width: unset;
+    margin-right: 4px;
+    box-shadow: unset;
+}
+
+.about-you form fieldset label {
+    margin-right: 20px;
+}
+
+.about-you form input[type="color"] {
+    padding: 0;
+    height: 30px;
+    width: 50%;
+}
+
+.about-you form button {
+    display: block;
+    padding: 16px 30px;
+    margin: 10% 0 0 auto;
+    text-transform: uppercase;
+    width: 140px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
+}
+
+@supports (display: flex) {
+    .about-you {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .about-you section {
+        width: 600px;
+    }
+}

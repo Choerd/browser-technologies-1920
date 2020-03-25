@@ -1,0 +1,50 @@
+.personal section {
+    max-width: 600px;
+    margin: auto;
+    padding: 0px 20px;
+}
+
+.personal h1 {
+    font-size: max(2vw, 24px);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.personal form label input {
+    margin: 4px 0px 12px 0px;
+    display: block;
+    width: 100%;
+    padding: 12px 8px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
+}
+
+.personal nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10%;
+}
+
+.personal form button, .personal nav a {
+    font-size: 14px;
+    background-color: white;
+    padding: 16px 0;
+    text-transform: uppercase;
+    width: 140px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
+}
+
+@supports (display: flex) {
+    .personal {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .personal section {
+        width: 600px;
+    }
+}

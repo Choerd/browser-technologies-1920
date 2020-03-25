@@ -1,37 +1,30 @@
 <%- include ('../components/head') %>
 
-<main>
+<main class="personal">
 
-    <h1>Persoonlijk</h1>
+    <section>
+        <h1>Persoonlijk</h1>
 
-    <form method="post" action="/nutrition">
-        <label>Ik lach het hardst om
-            <input type="text" autocomplete="off" name="question1" required>
-        </label>
+        <form method="post" action="/nutrition">
+            <label>Ik lach het hardst om<input type="text" autocomplete="off" name="question1" required></label>
 
-        <label>Ik ben bang voor
-            <input type="text" autocomplete="off" name="question2" required>
-        </label>
+            <label>Ik ben bang voor<input type="text" autocomplete="off" name="question2" required></label>
 
-        <label>Ik ben het gelukkigst als ik
-            <input type="text" autocomplete="off" name="question3" required>
-        </label>
+            <label>Ik ben het gelukkigst als ik<input type="text" autocomplete="off" name="question3" required></label>
 
-        <label>Ik kan niet leven zonder
-            <input type="text" autocomplete="off" name="question4" required>
-        </label>
+            <label>Ik kan niet leven zonder<input type="text" autocomplete="off" name="question4" required></label>
 
-        <label>Stiekem denk ik nog wel eens terug aan
-            <input type="text" autocomplete="off" name="question5" required>
-        </label>
+            <label>Stiekem denk ik nog wel eens terug aan<input type="text" autocomplete="off" name="question5"
+                    required></label>
 
-        <input type="hidden" name="userid" value=<%= userid %>>
+            <input type="hidden" name="userid" value=<%= userid %>>
 
-        <!-- Navigation -->
-        <nav>
-            <a href="/about-you">Over jou</a>
-            <input type="submit" value="Eetgewoonten">
-        </nav>
-    </form>
+            <!-- Navigation -->
+            <nav>
+                <a href="/about-you">Over jou</a>
+                <button type="submit" value="nutrition">Eetgewoonten</button>
+            </nav>
+        </form>
+    </section>
 
     <%- include ('../components/footer') %>
