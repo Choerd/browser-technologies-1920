@@ -5,10 +5,11 @@
     <section>
         <h1>Over jou</h1>
 
-        <form method="post" action="/personal">
+        <form method="post" action="/personal" survey>
             <label>Naam<input type="text" autocomplete="off" name="name" required></label>
 
-            <label>Leeftijd<input type="text" autocomplete="off" name="age" required></label>
+            <label>Leeftijd<input type="text" autocomplete="off" name="age" inputmode="numeric" pattern="[0-9]*"
+                    required></label>
 
             <fieldset>
                 <legend>Gender</legend>
