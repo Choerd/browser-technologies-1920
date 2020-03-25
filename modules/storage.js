@@ -2,6 +2,7 @@ const fs = require('file-system')
 
 module.exports = {
     addDataToArray,
+    readFromJson,
     setup
 }
 
@@ -10,7 +11,12 @@ function addDataToArray(data, name, route, res) {
     const user = json.find(user => user.id === data.userid)
     const index = json.map((o) => o.id).indexOf(user.id)
 
+    // console.log(json, user, index)
+
     json[index][`${name}`] = data
+
+    console.log(name)
+
     writeToJson(json)
 
     res.render(route, { userid: data.userid })

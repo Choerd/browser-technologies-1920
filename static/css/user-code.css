@@ -29,7 +29,7 @@
     font-size: 18px;
     font-weight: 600;
     max-width: 150px;
-    padding: 22px 40px;
+    padding: 22px 0;
 }
 
 .user-code form input, .user-code form button {

@@ -2,9 +2,7 @@
 @import 'home.css';
 @import 'user-code.css';
 @import 'about-you.css';
-@import 'personal.css';
-/* @import 'personal.css'; */
-@import 'money.css';
+@import 'survey.css';
 
 body {
     font-family: Lato, Arial, Helvetica, sans-serif;

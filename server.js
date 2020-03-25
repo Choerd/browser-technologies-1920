@@ -25,8 +25,8 @@ app
     .post('/use-user-code', urlencodedParser, (req, res) => user.check(req.body, res))
     .post('/about-you', urlencodedParser, (req, res) => storage.setup(req.body, res))
     .post('/personal', urlencodedParser, (req, res) => storage.addDataToArray(req.body, 'about-you', 'personal', res))
-    .post('/nutrition', urlencodedParser, (req, res) => storage.addDataToArray(req.body, 'about-you', 'nutrition', res))
-    .post('/money', urlencodedParser, (req, res) => storage.addDataToArray(req.body, 'about-you', 'money', res))
-    .post('/conclusion', urlencodedParser, (req, res) => storage.addDataToArray(req.body, 'about-you', 'conclusion', res))
+    .post('/nutrition', urlencodedParser, (req, res) => storage.addDataToArray(req.body, 'personal', 'nutrition', res))
+    .post('/money', urlencodedParser, (req, res) => storage.addDataToArray(req.body, 'nutrition', 'money', res))
+    .post('/conclusion', urlencodedParser, (req, res) => storage.addDataToArray(req.body, 'money', 'conclusion', res))
 
     .listen(port, () => console.log(`Example app listening on port ${port}`))

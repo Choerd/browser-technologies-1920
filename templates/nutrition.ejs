@@ -1,49 +1,50 @@
 <%- include ('../components/head') %>
 
-<main>
+<main class="survey">
+    <section>
+        <h1>Eetgewoonten</h1>
 
-    <h1>Eetgewoonten</h1>
-
-    <form method="post" action="/money">
-        <label>Mijn lievelingseten is
-            <input type="text" autocomplete="off" name="question1">
-        </label>
-
-        <fieldset>
-            <legend>Als ik mag kiezen eet ik het liefst</legend>
-            <label>
-                <input type="radio" value="candy" name="question2" required>
-                Snoep
+        <form method="post" action="/money">
+            <label>Mijn lievelingseten is
+                <input type="text" autocomplete="off" name="question1">
             </label>
-            <label>
-                <input type="radio" value="chips" name="question2" required>
-                Chips
+
+            <fieldset>
+                <legend>Als ik mag kiezen eet ik het liefst</legend>
+                <label>
+                    <input type="radio" value="candy" name="question2" required>
+                    Snoep
+                </label>
+                <label>
+                    <input type="radio" value="chips" name="question2" required>
+                    Chips
+                </label>
+                <label>
+                    <input type="radio" value="chocolate" name="question2" required>
+                    Chocolade
+                </label>
+                <label>
+                    <input type="radio" value="drop" name="question2" required>
+                    Drop
+                </label>
+            </fieldset>
+
+            <label>Als ik mijn eetpatroon een cijfer moest geven
+                <input type="range" autocomplete="off" min="1" max="10" name="question3" required>
             </label>
-            <label>
-                <input type="radio" value="chocolate" name="question2" required>
-                Chocolade
+
+            <label>Mijn lievelingsdrinken is
+                <input type="text" autocomplete="off" name="question4" required>
             </label>
-            <label>
-                <input type="radio" value="drop" name="question2" required>
-                Drop
-            </label>
-        </fieldset>
 
-        <label>Als ik mijn eetpatroon een cijfer moest geven
-            <input type="range" autocomplete="off" min="1" max="10" name="question3" required>
-        </label>
+            <input type="hidden" name="userid" value=<%= userid %>>
 
-        <label>Mijn lievelingsdrinken is
-            <input type="text" autocomplete="off" name="question4" required>
-        </label>
-
-        <input type="hidden" name="userid" value=<%= userid %>>
-
-        <!-- Navigation -->
-        <nav>
-            <a href="/personal">Persoonlijk</a>
-            <input type="submit" value="Money">
-        </nav>
-    </form>
+            <!-- Navigation -->
+            <nav>
+                <a href="/personal">Persoonlijk</a>
+                <button type="submit" value="money">Geld</button>
+            </nav>
+        </form>
+    </section>
 
     <%- include ('../components/footer') %>
