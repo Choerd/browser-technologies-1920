@@ -10,11 +10,11 @@ gulp.task('css', () => {
         .pipe(gulp.dest('production/css'))
 })
 
-gulp.task('js', () =>
-    gulp.src('development/js/*.js')
+gulp.task('js', () => {
+    return gulp.src('development/js/*.js')
         .pipe(concat('index.js'))
         .pipe(babel({ presets: ['@babel/preset-env'] }))
         .pipe(gulp.dest('production/js'))
-)
+})
 
 gulp.task('default', gulp.series('css', 'js'))
