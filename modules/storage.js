@@ -3,7 +3,8 @@ const fs = require('file-system')
 module.exports = {
     addDataToArray,
     readFromJson,
-    setup
+    setup,
+    route
 }
 
 function addDataToArray(data, name, route, res) {
@@ -15,7 +16,12 @@ function addDataToArray(data, name, route, res) {
 
     writeToJson(json)
 
-    res.render(route, { userid: data.userid })
+    if (user[route] != undefined) {
+        res.render(route, { userid: data.userid, data: user[route] })
+    } else {
+        res.render(route, { userid: data.userid, data: '' })
+    }
+
 }
 
 function readFromJson() {
@@ -32,5 +38,13 @@ function setup(data, res) {
     const json = readFromJson()
     json.push({ 'id': data.usercode })
     writeToJson(json)
-    res.render('about-you', { userid: data.usercode })
+    res.render('about-you', { userid: data.usercode, data: '' })
+}
+
+function route(req, res, page) {
+    const json = readFromJson()
+    const user = json.find(user => user.id == req.query.userid)
+    const data = user[req.query.page]
+
+    res.render(page, { data: data, userid: data.userid })
 }

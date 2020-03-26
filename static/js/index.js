@@ -1,7 +1,7 @@
 if (document.querySelector('[survey]')) {
     const inputs = nodeListToArray(document.querySelector('[survey]').querySelectorAll('input:not([type=hidden])'))
 
-    blurEvent(inputs)
+    checkInputsOnBlur(inputs)
 }
 
 function nodeListToArray(nodeList) {
@@ -12,30 +12,68 @@ function nodeListToArray(nodeList) {
     return array
 }
 
-function blurEvent(inputs) {
+function checkInputsOnBlur(inputs) {
     inputs.forEach(input => {
-        input.addEventListener('focus', () => {
+        input.addEventListener('blur', () => {
             if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
-                console.log('text', input)
-            }
-            if (input.type === 'radio') {
-                console.log('radio', input)
+                checkTextInput(input)
             }
             if (input.type === 'text' && input.pattern.includes('[0-9]')) {
-                console.log('number', input)
+                checkNumberInput(input)
+            }
+            if (input.type === 'radio') {
+                checkRadioInput(input)
             }
             if (input.type === 'tel') {
-                console.log('tel', input)
+                checkTelInput(input)
             }
             if (input.type === 'email') {
-                console.log('mail', input)
+                checkEmailInput(input)
             }
             if (input.type === 'color') {
-                console.log('color', input)
+                checkColorInput(input)
             }
             if (input.type === 'range') {
-                console.log('range', input)
+                checkRangeInput(input)
             }
         })
     })
+}
+
+function checkTextInput(input) {
+    if (input.value.match(/^[A-Za-z]+$/)) {
+        console.log('goed')
+    }
+    else if (input.value.match(/\d+/g)) {
+        console.log('numbers')
+    }
+    else if (input.value === '') {
+        console.log('empty')
+    }
+}
+
+function checkNumberInput(input) {
+    if (input.value.match(/^[0-9]+$/)) {
+        console.log('goed')
+    }
+}
+
+function checkRadioInput(input) {
+    console.log('radio', input)
+}
+
+function checkTelInput(input) {
+    console.log('tel', input)
+}
+
+function checkEmailInput(input) {
+    console.log('email', input)
+}
+
+function checkColorInput(input) {
+    console.log('color', input)
+}
+
+function checkRangeInput(input) {
+    console.log('range', input)
 }

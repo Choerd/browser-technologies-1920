@@ -26,6 +26,5 @@ function renderNewRoute(input, res) {
             }
         })
     }
-    console.log(unanswerdCategories)
-    res.render(unanswerdCategories[0], { userid: existingUser.id })
+    res.render(unanswerdCategories[0], { userid: existingUser.id, data: '' })
 }

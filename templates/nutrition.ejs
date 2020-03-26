@@ -5,42 +5,61 @@
         <h1>Eetgewoonten</h1>
 
         <form method="post" action="/money" survey>
-            <label>Mijn lievelingseten is
-                <input type="text" autocomplete="off" name="question1">
-            </label>
+            <% if (data.question1 === '') { %>
+            <label>Mijn lievelingseten is<input type="text" autocomplete="off" name="question1"></label>
+            <% } else { %>
+            <label>Mijn lievelingseten is<input type="text" autocomplete="off" name="question1"
+                    value="<%= data.question1 %>"></label>
+            <% }%>
 
             <fieldset>
                 <legend>Als ik mag kiezen eet ik het liefst</legend>
-                <label>
-                    <input type="radio" value="candy" name="question2" required>
-                    Snoep
-                </label>
-                <label>
-                    <input type="radio" value="chips" name="question2" required>
-                    Chips
-                </label>
-                <label>
-                    <input type="radio" value="chocolate" name="question2" required>
-                    Chocolade
-                </label>
-                <label>
-                    <input type="radio" value="drop" name="question2" required>
-                    Drop
-                </label>
+
+                <% if (data.question2 === 'candy') { %>
+                <label><input type="radio" value="candy" name="question2" checked required>Snoep</label>
+                <% } else { %>
+                <label><input type="radio" value="candy" name="question2" required>Snoep</label>
+                <% } %>
+
+                <% if (data.question2 === 'chips') { %>
+                <label><input type="radio" value="chips" name="question2" checked required>Chips</label>
+                <% } else { %>
+                <label><input type="radio" value="chips" name="question2" required>Chips</label>
+                <% } %>
+
+                <% if (data.question2 === 'chocolate') { %>
+                <label><input type="radio" value="chocolate" name="question2" checked required>Chocolade</label>
+                <% } else { %>
+                <label><input type="radio" value="chocolate" name="question2" required>Chocolade</label>
+                <% } %>
+
+                <% if (data.question2 === 'drop') { %>
+                <label><input type="radio" value="drop" name="question2" checked required>Drop</label>
+                <% } else { %>
+                <label><input type="radio" value="drop" name="question2" required>Drop</label>
+                <% } %>
             </fieldset>
 
-            <label>Als ik mijn eetpatroon een cijfer moest geven
-                <input type="range" autocomplete="off" min="1" max="10" name="question3" required>
-            </label>
+            <% if (data.question3 === '') { %>
+            <label>Als ik mijn eetpatroon een cijfer moest geven<input type="range" autocomplete="off" min="1" max="10"
+                    name="question3" required></label>
+            <% } else { %>
+            <label>Als ik mijn eetpatroon een cijfer moest geven<input type="range" autocomplete="off" min="1" max="10"
+                    name="question3" value="<%= data.question3 %>" required></label>
+            <% } %>
 
-            <label>Mijn lievelingsdrinken is
-                <input type="text" autocomplete="off" name="question4" required>
-            </label>
+            <% if (data.question4 === '') { %>
+            <label>Mijn lievelingsdrinken is<input type="text" autocomplete="off" name="question4" required></label>
+            <% } else { %>
+            <label>Mijn lievelingsdrinken is<input type="text" autocomplete="off" name="question4"
+                    value="<%= data.question4 %>" required></label>
+            <% } %>
 
             <input type="hidden" name="userid" value=<%= userid %>>
 
             <!-- Navigation -->
             <nav>
+                <a href="personal?userid=<%= userid %>&page=personal">Persoonlijk</a>
                 <button type="submit" value="money">Geld</button>
             </nav>
         </form>

@@ -6,30 +6,66 @@
         <h1>Over jou</h1>
 
         <form method="post" action="/personal" survey>
-            <label>Naam<input type="text" autocomplete="off" name="name" required></label>
 
+            <% if (data.name === '') { %>
+            <label>Naam<input type="text" autocomplete="off" name="name" required></label>
+            <% } else { %>
+            <label>Naam<input type="text" autocomplete="off" name="name" value="<%= data.name %>" required></label>
+            <% } %>
+
+            <% if (data.age === '') { %>
             <label>Leeftijd<input type="text" autocomplete="off" name="age" inputmode="numeric" pattern="[0-9]*"
                     required></label>
+            <% } else { %>
+            <label>Leeftijd<input type="text" autocomplete="off" name="age" value="<%= data.age %>" inputmode="numeric"
+                    pattern="[0-9]*" required></label>
+            <% } %>
 
             <fieldset>
                 <legend>Gender</legend>
+                <% if (data.gender === 'male') { %>
+                <label><input type="radio" value="male" name="gender" checked required>Man</label>
+                <label><input type="radio" value="female" name="gender" required>Vrouw</label>
+                <% } else if (data.gender === 'female') { %>
+                <label><input type="radio" value="male" name="gender" required>Man</label>
+                <label><input type="radio" value="female" name="gender" checked required>Vrouw</label>
+                <% } else { %>
                 <label><input type="radio" value="male" name="gender" required>Man</label>
                 <label><input type="radio" value="female" name="gender" required>Vrouw</label>
+                <% } %>
             </fieldset>
 
+            <% if (data.place === '') { %>
             <label>Woonplaats<input type="text" autocomplete="off" name="place" required></label>
+            <% } else { %>
+            <label>Woonplaats<input type="text" autocomplete="off" name="place" value="<%= data.place %>"
+                    required></label>
+            <% } %>
 
+            <% if (data.phone === '') { %>
             <label>Telefoon<input type="tel" autocomplete="off" name="phone" required></label>
+            <% } else { %>
+            <label>Telefoon<input type="tel" autocomplete="off" name="phone" value="<%= data.phone %>" required></label>
+            <% } %>
 
+            <% if (data.email === '') { %>
             <label>Email<input type="email" autocomplete="off" name="email" required></label>
+            <% } else { %>
+            <label>Email<input type="email" autocomplete="off" name="email" value="<%= data.email %>" required></label>
+            <% } %>
 
+            <% if (data.color === '') { %>
             <label>Lievelingskleur<input type="color" autocomplete="off" name="color" required></label>
+            <% } else { %>
+            <label>Lievelingskleur<input type="color" autocomplete="off" name="color" value="<%= data.color %>"
+                    required></label>
+            <% } %>
 
-            <input type="hidden" name="userid" value=<%= userid %>>
+            <input type="hidden" name="userid" value="<%= userid %>">
 
             <!-- Navigation -->
             <nav>
-                <button type="submit" value="personal">Persoonlijk</button>
+                <button type=" submit" value="personal">Persoonlijk</button>
             </nav>
 
         </form>
