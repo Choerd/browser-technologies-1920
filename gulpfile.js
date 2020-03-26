@@ -1,8 +1,8 @@
 const
     gulp = require('gulp'),
     cssimport = require("gulp-cssimport"),
-    babel = require('gulp-babel')
-
+    babel = require('gulp-babel'),
+    concat = require('gulp-concat')
 
 gulp.task('css', () => {
     return gulp.src(['development/css/index.css'])
@@ -11,7 +11,8 @@ gulp.task('css', () => {
 })
 
 gulp.task('js', () =>
-    gulp.src('development/js/index.js')
+    gulp.src('development/js/*.js')
+        .pipe(concat('index.js'))
         .pipe(babel({ presets: ['@babel/preset-env'] }))
         .pipe(gulp.dest('production/js'))
 )
