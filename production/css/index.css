@@ -1,0 +1,433 @@
+/* stylelint-disable selector-list-comma-newline-after */
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  text-decoration: none;
+}
+
+html {
+  color: var(--black);
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input,
+select,
+textarea {
+  border: none;
+}
+
+select {
+  border-radius: 0;
+}
+
+button {
+  padding: 0;
+}
+
+* {
+  color: inherit;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+input[type="submit"] {
+  font-size: 100%;
+  font-family: inherit;
+  border: 0;
+  padding: 0;
+  background-color: unset;
+}
+[start-options] a {
+    display: block;
+    text-transform: uppercase;
+    background-color: white;
+    border-radius: 10px;
+    font-weight: 800;
+    text-align: center;
+    padding: 6vh 3vw;
+    max-width: 320px;
+    margin: auto;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
+}
+
+[start-options] a:last-of-type {
+    width: 100%;
+    margin: 0px auto 0px auto;
+}
+
+[start-options] a:hover, [start-options] a:focus {
+    transform: translateY(-4px);
+}
+
+.home section {
+    width: 100%;
+}
+
+@supports (padding: 1vw) {
+    main {
+        padding: 5vh 5vw;
+    }
+
+    header, footer {
+        padding: 20px 5vw;
+    }
+}
+
+@supports (height: 1vw) and (height: calc(100vh - 120px)) {
+    main {
+        height: calc(100vh - 120px);
+    }
+}
+
+@supports (display: flex) {
+    header, footer {
+        height: 60px;
+        display: flex;
+        align-items: center;
+    }
+
+    .home {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    [start-options] {
+        display: flex;
+        margin: 0;
+        justify-content: space-around;
+    }
+
+    @media screen and (max-width: 800px) {
+        [start-options] {
+            flex-direction: column;
+        }
+
+        [start-options] a:first-of-type {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@supports not (display: flex) {
+        [start-options] a:first-of-type {
+            margin-bottom: 20px;
+        }
+}
+.user-code section {
+    max-width: 600px;
+    margin: auto;
+}
+
+.user-code h1 {
+    font-size: max(2vw, 24px);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.user-code p {
+    margin-bottom: 30px;
+}
+
+.user-code p > * {
+    font-weight: 400;
+    display: block;
+    text-align: center;
+}
+
+.user-code form > * {
+    display: block;
+}
+
+.user-code form input {
+    margin: auto;
+    font-size: 18px;
+    font-weight: 600;
+    max-width: 150px;
+    padding: 22px 0;
+}
+
+.user-code form input, .user-code form button {
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
+}
+
+.user-code form button {
+    padding: 16px 30px;
+    margin: 50% 0 0 auto;
+    text-transform: uppercase;
+    width: 140px;
+}
+
+@supports (display: flex) {
+    .user-code {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+.about-you section {
+    max-width: 600px;
+    margin: auto;
+    padding: 0px 20px;
+}
+
+.about-you h1 {
+    font-size: max(2vw, 24px);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.about-you form label input {
+    margin: 4px 0px 12px 0px;
+}
+
+.about-you form label input {
+    display: block;
+    width: 100%;
+    padding: 12px 8px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
+}
+
+.about-you form fieldset, .about-you form fieldset legend {
+    margin-bottom: 8px;
+}
+
+.about-you form fieldset label input {
+    display: inline;
+    width: unset;
+    margin-right: 4px;
+    box-shadow: unset;
+}
+
+.about-you form fieldset label {
+    margin-right: 20px;
+}
+
+.about-you form input[type="color"] {
+    padding: 0;
+    height: 30px;
+    width: 50%;
+}
+
+.about-you form button {
+    display: block;
+    padding: 16px 30px;
+    margin: 10% 0 0 auto;
+    text-transform: uppercase;
+    width: 140px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
+}
+
+.about-you form .correct:after, .about-you form .wrong:after {
+    content: attr(data-message);
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.about-you form .correct input, .about-you form .wrong input {
+    background-size: 13px 13px;
+    background-repeat: no-repeat;
+    background-position: center right 8px;
+    margin-bottom: 12px;
+}
+
+.about-you form .correct input {
+    background-image: url('../images/correct.png');
+}
+
+.about-you form .wrong input {
+    background-image: url('../images/wrong.png');
+}
+
+@supports (display: flex) {
+    .about-you {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .about-you section {
+        width: 600px;
+    }
+}
+.survey section {
+    max-width: 600px;
+    margin: auto;
+    padding: 0px 20px;
+}
+
+.survey h1 {
+    font-size: max(2vw, 24px);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.survey form label input {
+    margin: 4px 0px 12px 0px;
+}
+
+.survey form label input {
+    display: block;
+    width: 100%;
+    padding: 12px 8px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
+}
+
+.survey form fieldset, .survey form fieldset legend {
+    margin-bottom: 8px;
+}
+
+.survey form fieldset label input {
+    display: inline;
+    width: unset;
+    margin-right: 4px;
+    box-shadow: unset;
+}
+
+.survey form fieldset label {
+    margin-right: 20px;
+}
+
+.survey form input[type="range"] {
+    padding: 0;
+    height: 30px;
+    width: unset;
+    box-shadow: unset;
+    width: 100%;
+}
+
+.survey nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10%;
+}
+
+.survey form button {
+    font-size: 14px;
+    background-color: white;
+    padding: 16px 0;
+    text-transform: uppercase;
+    width: 140px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
+    margin-left: auto;
+}
+
+.survey form .correct:after, .survey form .wrong:after {
+    content: attr(data-message);
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.survey form .correct input, .survey form .wrong input {
+    background-size: 13px 13px;
+    background-repeat: no-repeat;
+    background-position: center right 8px;
+    margin-bottom: 12px;
+}
+
+.survey form .correct input {
+    background-image: url('../images/correct.png');
+}
+
+.survey form .wrong input {
+    background-image: url('../images/wrong.png');
+}
+
+@supports (display: flex) {
+    .survey {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .survey section {
+        width: 600px;
+    }
+}
+
+body {
+    font-family: Lato, Arial, Helvetica, sans-serif;
+}
+
+header, footer {
+    padding: 20px;
+    border-bottom: 2px solid #222222;
+}
+
+footer {
+    border-top: 2px solid #222222;
+}
+
+main {
+    padding: 20px;
+    background-color: #ebb22e;
+}

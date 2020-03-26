@@ -5,18 +5,28 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "predev": "npm run build:production",
+    "dev": "nodemon server.js",
+    "prebuild:production": "concurrently \"rimraf /production/css/index.css\" \"rimraf /production/js/index.js\"",
+    "build:production": "gulp"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "concurrently": "^5.1.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "file-system": "^2.2.2",
-    "generate-password": "^1.5.1"
+    "generate-password": "^1.5.1",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-cssimport": "^7.0.0",
     "nodemon": "^2.0.2"
   }
 }

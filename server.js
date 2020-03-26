@@ -6,7 +6,7 @@ const
     app = express()
 
 // Static assets folder
-app.use(express.static('static'))
+app.use(express.static('production'))
 
 // Declare template engine and path
 app.set('view engine', 'ejs')
