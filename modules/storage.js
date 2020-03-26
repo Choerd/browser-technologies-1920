@@ -12,7 +12,11 @@ function addDataToArray(data, name, route, res) {
     const user = json.find(user => user.id === data.userid)
     const index = json.map((o) => o.id).indexOf(user.id)
 
+    console.log(json)
+
     json[index][`${name}`] = data
+
+    console.log(json)
 
     writeToJson(json)
 
@@ -21,7 +25,6 @@ function addDataToArray(data, name, route, res) {
     } else {
         res.render(route, { userid: data.userid, data: '' })
     }
-
 }
 
 function readFromJson() {

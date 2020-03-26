@@ -1,13 +1,9 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const port = process.env.PORT || 4000
-const urlencodedParser = bodyParser.urlencoded({ extended: true })
-const app = express()
-
-
-const fs = require('file-system')
-
-
+const
+    express = require('express'),
+    bodyParser = require('body-parser'),
+    port = process.env.PORT || 4000,
+    urlencodedParser = bodyParser.urlencoded({ extended: true }),
+    app = express()
 
 // Static assets folder
 app.use(express.static('static'))
@@ -17,9 +13,10 @@ app.set('view engine', 'ejs')
 app.set('views', 'templates')
 
 // Imported functions
-const storage = require('./modules/storage.js')
-const generate = require('./modules/generate.js')
-const user = require('./modules/user.js')
+const
+    storage = require('./modules/storage.js'),
+    generate = require('./modules/generate.js'),
+    user = require('./modules/user.js')
 
 // Routes
 app

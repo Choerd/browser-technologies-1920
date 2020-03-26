@@ -21,20 +21,11 @@ function checkInputsOnBlur(inputs) {
             if (input.type === 'text' && input.pattern.includes('[0-9]')) {
                 checkNumberInput(input)
             }
-            if (input.type === 'radio') {
-                checkRadioInput(input)
-            }
             if (input.type === 'tel') {
                 checkTelInput(input)
             }
             if (input.type === 'email') {
                 checkEmailInput(input)
-            }
-            if (input.type === 'color') {
-                checkColorInput(input)
-            }
-            if (input.type === 'range') {
-                checkRangeInput(input)
             }
         })
     })
@@ -42,38 +33,75 @@ function checkInputsOnBlur(inputs) {
 
 function checkTextInput(input) {
     if (input.value.match(/^[A-Za-z]+$/)) {
-        console.log('goed')
-    }
-    else if (input.value.match(/\d+/g)) {
-        console.log('numbers')
-    }
-    else if (input.value === '') {
-        console.log('empty')
+        niceFeedback(input)
+    } else if (input.value.match(/\d+/g)) {
+        badFeedback(input, 'Whoops! Je hebt hier getallen ingevult, het moet tekst zijn.')
+    } else if (input.value === '') {
+        emptyFeedback(input, 'Whoops! Je hebt nog niks ingevult.')
     }
 }
 
 function checkNumberInput(input) {
     if (input.value.match(/^[0-9]+$/)) {
-        console.log('goed')
+        niceFeedback(input, '')
+    } else if (input.value.match(/^[A-Za-z]+$/)) {
+        badFeedback(input, 'Whoops! Je hebt hier tekst ingevult, het moeten getallen zijn!')
+    } else if (input.value === '') {
+        emptyFeedback(input, 'Whoops! Je hebt nog niks ingevult.')
     }
 }
 
-function checkRadioInput(input) {
-    console.log('radio', input)
-}
-
 function checkTelInput(input) {
-    console.log('tel', input)
+    if (input.value.match(/^[0-9]+$/) && input.value.length > 9) {
+        niceFeedback(input)
+    } else if (input.value.match(/^[A-Za-z]+$/) || input.value.length < 10) {
+        badFeedback(input, 'Whoops! Volgens mij is dit geen telefoonnummer')
+    } else if (input.value === '') {
+        emptyFeedback(input, 'Whoops! Je hebt nog niks ingevult.')
+    }
 }
 
 function checkEmailInput(input) {
-    console.log('email', input)
+    if (input.value.includes('@') && input.value.includes('.') && input.value.length > 5) {
+        niceFeedback(input)
+    } else if (input.value === '') {
+        emptyFeedback(input, 'Whoops! Je hebt nog niks ingevult.')
+    } else {
+        badFeedback(input, 'Whoops! Volgens mij is dit geen email adres')
+    }
 }
 
-function checkColorInput(input) {
-    console.log('color', input)
+function niceFeedback(input) {
+    const label = input.parentElement
+
+    // unset
+    label.className = ''
+    label.setAttribute('data-message', '')
+
+    // set
+    label.classList.add('correct')
 }
 
-function checkRangeInput(input) {
-    console.log('range', input)
+function badFeedback(input, message) {
+    const label = input.parentElement
+
+    // unset
+    label.className = ''
+    label.setAttribute('data-message', '')
+
+    //set
+    label.classList.add('wrong')
+    label.setAttribute('data-message', message)
+}
+
+function emptyFeedback(input, message) {
+    const label = input.parentElement
+
+    // unset
+    label.className = ''
+    label.setAttribute('data-message', '')
+
+    // set
+    label.classList.add('wrong')
+    label.setAttribute('data-message', message)
 }
