@@ -25,7 +25,7 @@
         padding: 6vh 3vw;
     }
 
-    main {
+    body > section:first-of-type {
         padding: 5vh 5vw;
     }
 
@@ -35,7 +35,7 @@
 }
 
 @supports (height: 1vw) and (height: calc(100vh - 120px)) {
-    main {
+    body > section:first-of-type {
         height: calc(100vh - 120px);
     }
 }

@@ -30,3 +30,7 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, input[ty
     outline: 2px solid black;
     border-radius: 5px;
 }
+
+button {
+    background-color: white;
+}
