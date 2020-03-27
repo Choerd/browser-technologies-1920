@@ -26,10 +26,6 @@ body > section:first-of-type {
     transform: translateY(-8px);
 }
 
-input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, input[type=text]:focus, input[type=tel]:focus, input[type=email]:focus {
-    outline: 1px solid lightblue;
-}
-
 button {
     background-color: white;
 }

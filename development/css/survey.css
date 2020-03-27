@@ -46,22 +46,24 @@
     width: 100%;
 }
 
-.survey nav {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10%;
+form nav {
+    margin: 10% 0 0 auto;
 }
 
-.survey form button {
+form nav > * {
     font-size: 14px;
     background-color: white;
-    padding: 16px 0;
+    display: inline-block;
+    padding: 16px 0px;
     text-transform: uppercase;
     width: 140px;
     text-align: center;
     border-radius: 5px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
-    margin-left: auto;
+}
+
+form nav button {
+    float: right;
 }
 
 .survey form .correct:after, .survey form .wrong:after {
