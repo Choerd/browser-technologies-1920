@@ -17,12 +17,10 @@ function nodeListToArray(nodeList) {
 function checkInputsOnBlur(inputs) {
     inputs.forEach(input => {
         input.addEventListener('blur', () => {
-            // if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
-            if (input.type === 'text') {
+            if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
                 checkTextInput(input)
             }
-            // if (input.type === 'text' && input.pattern.includes('[0-9]')) {
-            if (input.type === 'text') {
+            if (input.type === 'text' && input.pattern.includes('[0-9]')) {
                 checkNumberInput(input)
             }
             if (input.type === 'tel') {
@@ -66,8 +64,7 @@ function checkTelInput(input) {
 }
 
 function checkEmailInput(input) {
-    // if (input.value.includes('@') && input.value.includes('.') && input.value.length > 5) {
-    if (input.value !== '') {
+    if (input.value.includes('@') && input.value.includes('.') && input.value.length > 5) {
         niceFeedback(input)
     } else if (input.value === '') {
         emptyFeedback(input, 'Whoops! Je hebt nog niks ingevult.')
