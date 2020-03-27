@@ -34,7 +34,7 @@
     }
 }
 
-@supports (height: 1vw) and (height: calc(100vh - 120px)) {
+@supports (height: 1vh) and (height: calc(100vh - 120px)) {
     body > section:first-of-type {
         height: calc(100vh - 120px);
     }
@@ -71,7 +71,7 @@
 }
 
 @supports not (display: flex) {
-        [start-options] a:first-of-type {
+        [start-options] a {
             margin-bottom: 20px;
         }
 

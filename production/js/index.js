@@ -21,8 +21,6 @@ function documentChecker() {
     return feature in document && typeof document.body[feature] === 'function';
   };
 
-  console.log('querySelectorAll' in document && typeof document.body.querySelectorAll === 'function');
-  console.log('addEventListener' in document && typeof document.body.addEventListener === 'function');
   return features.every(checker);
 }
 
@@ -33,7 +31,6 @@ function documentBodyChecker() {
     return feature in document.body && typeof document.body[feature] === 'function';
   };
 
-  console.log('setAttribute' in document.body && typeof document.body.setAttribute === 'function');
   return features.every(checker);
 }
 
@@ -44,7 +41,6 @@ function documentObjectChecker() {
     return feature in document.documentElement && _typeof(document.body[feature]) === 'object';
   };
 
-  console.log('classList' in document.documentElement && _typeof(document.body.classList) === 'object');
   return features.every(checker);
 } // Voor documentatie
 // function checkAddEventListner() {
