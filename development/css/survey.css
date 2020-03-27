@@ -29,9 +29,9 @@
 
 .survey form fieldset label input {
     display: inline;
-    width: unset;
+    width: auto;
     margin-right: 4px;
-    box-shadow: unset;
+    box-shadow: none;
 }
 
 .survey form fieldset label {
@@ -41,8 +41,8 @@
 .survey form input[type="range"] {
     padding: 0;
     height: 30px;
-    width: unset;
-    box-shadow: unset;
+    width: auto;
+    box-shadow: none;
     width: 100%;
 }
 
