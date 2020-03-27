@@ -444,8 +444,7 @@ body > section:first-of-type {
 }
 
 input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, input[type=text]:focus, input[type=tel]:focus, input[type=email]:focus {
-    border: 2px solid #ffffff;
-    border-radius: 5px;
+    outline: 1px solid lightblue;
 }
 
 button {
