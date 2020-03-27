@@ -48,12 +48,7 @@ function documentObjectChecker() {
   };
 
   return features.every(checker);
-} // Voor documentatie
-// function checkAddEventListner() {
-//     console.log('addEventListener' in document)
-//     console.log(typeof document.body.addEventListener === 'function')
-// }
-
+}
 
 if (checkJavaScriptFeatures()) {
   if (document.querySelector('[survey]')) {
@@ -126,29 +121,29 @@ function checkEmailInput(input) {
 }
 
 function niceFeedback(input) {
-  var label = input.parentElement; // unset
+  var label = input.parentElement;
 
   label.className = '';
-  label.setAttribute('data-message', ''); // set
+  label.setAttribute('data-message', '');
 
   label.classList.add('correct');
 }
 
 function badFeedback(input, message) {
-  var label = input.parentElement; // unset
+  var label = input.parentElement;
 
   label.className = '';
-  label.setAttribute('data-message', ''); //set
+  label.setAttribute('data-message', '');
 
   label.classList.add('wrong');
   label.setAttribute('data-message', message);
 }
 
 function emptyFeedback(input, message) {
-  var label = input.parentElement; // unset
+  var label = input.parentElement;
 
   label.className = '';
-  label.setAttribute('data-message', ''); // set
+  label.setAttribute('data-message', '');
 
   label.classList.add('wrong');
   label.setAttribute('data-message', message);
