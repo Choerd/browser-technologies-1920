@@ -1,17 +1,9 @@
 if (checkJavaScriptFeatures()) {
     if (document.querySelector('[survey]')) {
-        const inputs = nodeListToArray(document.querySelector('[survey]').querySelectorAll('input:not([type=hidden])'))
+        const inputs = [...document.querySelector('[survey]').querySelectorAll('input:not([type=hidden])')]
 
         checkInputsOnBlur(inputs)
     }
-}
-
-function nodeListToArray(nodeList) {
-    let array = []
-    for (const node of nodeList) {
-        array.push(node)
-    }
-    return array
 }
 
 function checkInputsOnBlur(inputs) {

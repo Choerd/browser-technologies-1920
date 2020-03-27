@@ -10,13 +10,13 @@ gulp.task('build:css', () => {
         .pipe(gulp.dest('production/css'))
 })
 
-gulp.task('default', gulp.series('build:css'))
+// gulp.task('default', gulp.series('build:css'))
 
-// gulp.task('build:js', () => {
-//     return gulp.src('development/js/*.js')
-//         .pipe(concat('index.js'))
-//         .pipe(babel({ presets: ['@babel/preset-env'] }))
-//         .pipe(gulp.dest('production/js'))
-// })
+gulp.task('build:js', () => {
+    return gulp.src('development/js/*.js')
+        .pipe(concat('index.js'))
+        .pipe(babel({ presets: ['@babel/preset-env'] }))
+        .pipe(gulp.dest('production/js'))
+})
 
-// gulp.task('default', gulp.series('build:css', 'build:js'))
+gulp.task('default', gulp.series('build:css', 'build:js'))
