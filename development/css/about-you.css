@@ -29,9 +29,9 @@
 
 .about-you form fieldset label input {
     display: inline;
-    width: unset;
+    width: auto;
     margin-right: 4px;
-    box-shadow: unset;
+    box-shadow: none;
 }
 
 .about-you form fieldset label {

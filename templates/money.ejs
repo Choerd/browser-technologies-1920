@@ -1,53 +1,55 @@
 <%- include ('../components/head') %>
 
-<main class="survey">
+<section class="survey">
 
-    <section>
-        <h1>Geld</h1>
+        <section>
+                <h1>Geld</h1>
 
-        <form method="post" action="/conclusion" survey>
+                <form method="post" action="/conclusion" survey>
 
-            <% if (data.question1 === '') { %>
-            <label>Ik geef mijn geld het liefst uit aan<input type="text" autocomplete="off" name="question1"
-                    required></label>
-            <% } else { %>
-            <label>Ik geef mijn geld het liefst uit aan<input type="text" autocomplete="off" name="question1"
-                    value="<%= data.question1 %>" required></label>
-            <% } %>
+                        <% if (data.question1 === '') { %>
+                        <label>Ik geef mijn geld het liefst uit aan<input type="text" autocomplete="off"
+                                        name="question1" required></label>
+                        <% } else { %>
+                        <label>Ik geef mijn geld het liefst uit aan<input type="text" autocomplete="off"
+                                        name="question1" value="<%= data.question1 %>" required></label>
+                        <% } %>
 
-            <% if (data.question1 === '') { %>
-            <label>Ik ben aan het sparen voor<input type="text" autocomplete="off" name="question2" required></label>
-            <% } else { %>
-            <label>Ik ben aan het sparen voor<input type="text" autocomplete="off" name="question2"
-                    value="<%= data.question2 %>" required></label>
-            <% } %>
-
-
-            <% if (data.question1 === '') { %>
-            <label>Mijn eerste baantje was<input type="text" autocomplete="off" name="question3" required></label>
-            <% } else { %>
-            <label>Mijn eerste baantje was<input type="text" autocomplete="off" name="question3"
-                    value="<%= data.question3 %>" required></label>
-            <% } %>
+                        <% if (data.question1 === '') { %>
+                        <label>Ik ben aan het sparen voor<input type="text" autocomplete="off" name="question2"
+                                        required></label>
+                        <% } else { %>
+                        <label>Ik ben aan het sparen voor<input type="text" autocomplete="off" name="question2"
+                                        value="<%= data.question2 %>" required></label>
+                        <% } %>
 
 
-            <% if (data.question1 === '') { %>
-            <label>Het duurste wat ik ooit heb gekocht<input type="text" autocomplete="off" name="question4"
-                    required></label>
-            <% } else { %>
-            <label>Het duurste wat ik ooit heb gekocht<input type="text" autocomplete="off" name="question4"
-                    value="<%= data.question4 %>" required></label>
-            <% } %>
+                        <% if (data.question1 === '') { %>
+                        <label>Mijn eerste baantje was<input type="text" autocomplete="off" name="question3"
+                                        required></label>
+                        <% } else { %>
+                        <label>Mijn eerste baantje was<input type="text" autocomplete="off" name="question3"
+                                        value="<%= data.question3 %>" required></label>
+                        <% } %>
 
 
-            <input type="hidden" name="userid" value=<%= userid %>>
+                        <% if (data.question1 === '') { %>
+                        <label>Het duurste wat ik ooit heb gekocht<input type="text" autocomplete="off" name="question4"
+                                        required></label>
+                        <% } else { %>
+                        <label>Het duurste wat ik ooit heb gekocht<input type="text" autocomplete="off" name="question4"
+                                        value="<%= data.question4 %>" required></label>
+                        <% } %>
 
-            <!-- Navigation -->
-            <nav>
-                <a href="nutrition?userid=<%= userid %>&page=nutrition">Eetgewoonten</a>
-                <button type="submit" value="conclusion">Conclusie</button>
-            </nav>
-        </form>
-    </section>
 
-    <%- include ('../components/footer') %>
+                        <input type="hidden" name="userid" value=<%= userid %>>
+
+                        <!-- Navigation -->
+                        <nav>
+                                <a href="nutrition?userid=<%= userid %>&page=nutrition">Eetgewoonten</a>
+                                <button type="submit" value="conclusion">Conclusie</button>
+                        </nav>
+                </form>
+        </section>
+
+        <%- include ('../components/footer') %>
