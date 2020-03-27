@@ -5,7 +5,7 @@
     border-radius: 10px;
     font-weight: 800;
     text-align: center;
-    padding: 6vh 3vw;
+    padding: 5% 3%;
     max-width: 320px;
     margin: auto;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
@@ -16,15 +16,15 @@
     margin: 0px auto 0px auto;
 }
 
-[start-options] a:hover, [start-options] a:focus {
-    transform: translateY(-4px);
-}
-
 .home section {
     width: 100%;
 }
 
-@supports (padding: 1vw) {
+@supports (padding: 1vw 1vh) {
+    [start-options] a {
+        padding: 6vh 3vw;
+    }
+
     main {
         padding: 5vh 5vw;
     }
@@ -73,5 +73,11 @@
 @supports not (display: flex) {
         [start-options] a:first-of-type {
             margin-bottom: 20px;
+        }
+
+        @media screen and (max-width: 800px) {
+            [start-options] a {
+                padding: 70px 3%;
+            }
         }
 }

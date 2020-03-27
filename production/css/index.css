@@ -100,7 +100,7 @@ input[type="submit"] {
     border-radius: 10px;
     font-weight: 800;
     text-align: center;
-    padding: 6vh 3vw;
+    padding: 5% 3%;
     max-width: 320px;
     margin: auto;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
@@ -111,15 +111,15 @@ input[type="submit"] {
     margin: 0px auto 0px auto;
 }
 
-[start-options] a:hover, [start-options] a:focus {
-    transform: translateY(-4px);
-}
-
 .home section {
     width: 100%;
 }
 
-@supports (padding: 1vw) {
+@supports (padding: 1vw 1vh) {
+    [start-options] a {
+        padding: 6vh 3vw;
+    }
+
     main {
         padding: 5vh 5vw;
     }
@@ -168,6 +168,12 @@ input[type="submit"] {
 @supports not (display: flex) {
         [start-options] a:first-of-type {
             margin-bottom: 20px;
+        }
+
+        @media screen and (max-width: 800px) {
+            [start-options] a {
+                padding: 70px 3%;
+            }
         }
 }
 .user-code section {
@@ -430,4 +436,13 @@ footer {
 main {
     padding: 20px;
     background-color: #ebb22e;
+}
+
+[start-options] a:hover, [start-options] a:hover, button:hover, button:hover {
+    transform: translateY(-8px);
+}
+
+input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover {
+    outline: 2px solid black;
+    border-radius: 5px;
 }

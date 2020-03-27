@@ -21,3 +21,12 @@ main {
     padding: 20px;
     background-color: #ebb22e;
 }
+
+[start-options] a:hover, [start-options] a:hover, button:hover, button:hover {
+    transform: translateY(-8px);
+}
+
+input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover {
+    outline: 2px solid black;
+    border-radius: 5px;
+}

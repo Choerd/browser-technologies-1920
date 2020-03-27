@@ -6,16 +6,48 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 function checkJavaScriptFeatures() {
+  if (documentChecker() && documentBodyChecker() && documentObjectChecker()) {
+    return true;
+  }
+}
+
+function documentChecker() {
   var features = ['querySelectorAll', 'addEventListener'];
 
   var checker = function checker(feature) {
     return feature in document && typeof document.body[feature] === 'function';
   };
 
+  console.log('querySelectorAll' in document && typeof document.body.querySelectorAll === 'function');
+  console.log('addEventListener' in document && typeof document.body.addEventListener === 'function');
+  return features.every(checker);
+}
+
+function documentBodyChecker() {
+  var features = ['setAttribute'];
+
+  var checker = function checker(feature) {
+    return feature in document.body && typeof document.body[feature] === 'function';
+  };
+
+  console.log('setAttribute' in document.body && typeof document.body.setAttribute === 'function');
+  return features.every(checker);
+}
+
+function documentObjectChecker() {
+  var features = ['classList'];
+
+  var checker = function checker(feature) {
+    return feature in document.documentElement && _typeof(document.body[feature]) === 'object';
+  };
+
+  console.log('classList' in document.documentElement && _typeof(document.body.classList) === 'object');
   return features.every(checker);
 } // Voor documentatie
-// function checkFeature() {
+// function checkAddEventListner() {
 //     console.log('addEventListener' in document)
 //     console.log(typeof document.body.addEventListener === 'function')
 // }
