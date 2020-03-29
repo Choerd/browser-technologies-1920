@@ -48,7 +48,12 @@ function documentObjectChecker() {
   };
 
   return features.every(checker);
-}
+} // Voor documentatie
+// function checkAddEventListner() {
+//     console.log('addEventListener' in document)
+//     console.log(typeof document.body.addEventListener === 'function')
+// }
+
 
 if (checkJavaScriptFeatures()) {
   if (document.querySelector('[survey]')) {
@@ -59,25 +64,25 @@ if (checkJavaScriptFeatures()) {
 }
 
 function checkInputsOnBlur(inputs) {
-  for (var i = 0; i < inputs.length; i++) {
-    inputs[i].addEventListener('blur', function () {
-      if (inputs[i].type === 'text' && !inputs[i].pattern.includes('[0-9]')) {
-        checkTextInput(inputs[i]);
+  inputs.forEach(function (input) {
+    input.addEventListener('blur', function () {
+      if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
+        checkTextInput(input);
       }
 
-      if (inputs[i].type === 'text' && inputs[i].pattern.includes('[0-9]')) {
-        checkNumberInput(inputs[i]);
+      if (input.type === 'text' && input.pattern.includes('[0-9]')) {
+        checkNumberInput(input);
       }
 
-      if (inputs[i].type === 'tel') {
-        checkTelInput(inputs[i]);
+      if (input.type === 'tel') {
+        checkTelInput(input);
       }
 
-      if (inputs[i].type === 'email') {
-        checkEmailInput(inputs[i]);
+      if (input.type === 'email') {
+        checkEmailInput(input);
       }
     });
-  }
+  });
 }
 
 function checkTextInput(input) {
@@ -121,29 +126,29 @@ function checkEmailInput(input) {
 }
 
 function niceFeedback(input) {
-  var label = input.parentElement;
+  var label = input.parentElement; // unset
 
   label.className = '';
-  label.setAttribute('data-message', '');
+  label.setAttribute('data-message', ''); // set
 
   label.classList.add('correct');
 }
 
 function badFeedback(input, message) {
-  var label = input.parentElement;
+  var label = input.parentElement; // unset
 
   label.className = '';
-  label.setAttribute('data-message', '');
+  label.setAttribute('data-message', ''); //set
 
   label.classList.add('wrong');
   label.setAttribute('data-message', message);
 }
 
 function emptyFeedback(input, message) {
-  var label = input.parentElement;
+  var label = input.parentElement; // unset
 
   label.className = '';
-  label.setAttribute('data-message', '');
+  label.setAttribute('data-message', ''); // set
 
   label.classList.add('wrong');
   label.setAttribute('data-message', message);
