@@ -93,11 +93,11 @@ function checkInputsOnBlur(inputs) {
   inputs.forEach(function (input) {
     if (addEventListener()) {
       input.addEventListener('blur', function () {
-        if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
+        if (input.type === 'text' && !input.pattern.indexOf('[0-9]')) {
           checkTextInput(input);
         }
 
-        if (input.type === 'text' && input.pattern.includes('[0-9]')) {
+        if (input.type === 'text' && input.pattern.indexOf('[0-9]')) {
           checkNumberInput(input);
         }
 
@@ -111,11 +111,11 @@ function checkInputsOnBlur(inputs) {
       });
     } else {
       input.attachEvent('onblur', function () {
-        if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
+        if (input.type === 'text' && !input.pattern.indexOf('[0-9]')) {
           checkTextInput(input);
         }
 
-        if (input.type === 'text' && input.pattern.includes('[0-9]')) {
+        if (input.type === 'text' && input.pattern.indexOf('[0-9]')) {
           checkNumberInput(input);
         }
 
@@ -162,7 +162,7 @@ function checkTelInput(input) {
 }
 
 function checkEmailInput(input) {
-  if (input.value.includes('@') && input.value.includes('.') && input.value.length > 5) {
+  if (input.value.indexOf('@') && input.value.indexOf('.') && input.value.length > 5) {
     niceFeedback(input);
   } else if (input.value === '') {
     emptyFeedback(input, 'Whoops! Je hebt nog niks ingevult.');
