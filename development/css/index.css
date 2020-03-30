@@ -17,7 +17,7 @@ footer {
     border-top: 2px solid #222222;
 }
 
-body > div:first-of-type {
+body > .main {
     padding: 20px;
     background-color: #ebb22e;
 }
