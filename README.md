@@ -108,11 +108,68 @@ De padding op de buttons hangt ervan af of de browser `vw` en `vh` ondersteunt. 
 </details>
 
 **Pleasurable Layer | Code snippets**
-<details><summary>Form validation door middel van Javascript</summary>
+<details><summary>Form validation door middel van JavaScript</summary>
 
+Hieronder heb ik een voorbeeld van de code die wordt gebruikt voor het valideren van de `input type='text'`. 
 
+`JavaScript`
 ```javascript
+function checkTextInput(input) {
+  if (input.value.match(/^[A-Za-z]+$/)) {
+    niceFeedback(input)
+  } else if (input.value.match(/\d+/g)) {
+    badFeedback(input, 'Whoops! Je hebt hier getallen ingevult, het moet tekst zijn.')
+  } else if (input.value === '') {
+    emptyFeedback(input, 'Whoops! Je hebt nog niks ingevult.')
+  }
+}
 
+// All different types of feedback to the user
+function niceFeedback(input) {
+  const label = input.parentElement
+  label.classList.add('correct')
+}
+
+function badFeedback(input, message) {
+  const label = input.parentElement
+
+  label.classList.add('wrong')
+  label.setAttribute('data-message', message)
+}
+
+function emptyFeedback(input, message) {
+  const label = input.parentElement
+
+  label.classList.add('wrong')
+  label.setAttribute('data-message', message)
+}
+```
+
+<br>
+
+`CSS`
+```css
+.survey form .correct:after, .survey form .wrong:after {
+    content: attr(data-message);
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.survey form .correct input, .survey form .wrong input {
+    background-size: 13px 13px;
+    background-repeat: no-repeat;
+    background-position: center right 8px;
+    margin-bottom: 12px;
+}
+
+.survey form .correct input {
+    background-image: url('../images/correct.png');
+}
+
+.survey form .wrong input {
+    background-image: url('../images/wrong.png');
+}
 ```
 
 </details>
