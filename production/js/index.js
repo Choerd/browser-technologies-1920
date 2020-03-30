@@ -1,17 +1,5 @@
 "use strict";
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function checkJavaScriptFeatures() {
@@ -48,30 +36,7 @@ function checkParentElement() {
   if ('parentElement' in document.documentElement && _typeof(document.body.parentElement) === 'object') {
     return true;
   }
-} // function checkJavaScriptFeatures() {
-//   if (documentChecker() && documentBodyChecker() && documentObjectChecker()) {
-//     return true
-//   }
-// }
-// function documentChecker() {
-//   const features = ['querySelectorAll', 'addEventListener']
-//   const checker = (feature) =>
-//     feature in document && typeof document.body[feature] === 'function'
-//   return features.every(checker)
-// }
-// function documentBodyChecker() {
-//   const features = ['setAttribute']
-//   const checker = (feature) =>
-//     feature in document.body && typeof document.body[feature] === 'function'
-//   return features.every(checker)
-// }
-// function documentObjectChecker() {
-//   const features = ['classList', 'parentElement']
-//   const checker = (feature) =>
-//     feature in document.documentElement && typeof document.body[feature] === 'object'
-//   return features.every(checker)
-// }
-
+}
 
 function addEventListener() {
   if ('addEventListener' in document && typeof document.body.addEventListener === 'function') {
@@ -83,8 +48,6 @@ function addEventListener() {
 
 if (checkJavaScriptFeatures()) {
   if (document.querySelector('[survey]')) {
-    // var inputs = _toConsumableArray(document.querySelector('[survey]').querySelectorAll('input:not([type=hidden])'));
-
 
     var inputs = document.querySelector('[survey]').querySelectorAll('input:not([type=hidden])');
 
@@ -93,10 +56,7 @@ if (checkJavaScriptFeatures()) {
 }
 
 function checkInputsOnBlur(inputs) {
-
   Array.prototype.forEach.call(inputs, function (input) {
-
-    // inputs.forEach(function (input) {
     if (addEventListener()) {
       input.addEventListener('blur', function () {
         if (input.type === 'text' && input.pattern === '') {
@@ -134,7 +94,6 @@ function checkInputsOnBlur(inputs) {
         }
       });
     }
-    // });
   })
 }
 
