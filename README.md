@@ -255,6 +255,11 @@ inputs.forEach(input => {
   }
 })
 ``` 
+
+<hr>
+
+## Browser Testing
+
 <hr>
 
 ## Wireframes
