@@ -48,10 +48,15 @@ function documentObjectChecker() {
   };
 
   return features.every(checker);
-}
+} // Voor documentatie
+// function checkAddEventListner() {
+//     console.log('addEventListener' in document)
+//     console.log(typeof document.body.addEventListener === 'function')
+// }
+
 
 function addEventListener() {
-  if (addEventListener in document && typeof document.body.addEventListener === 'function') {
+  if ('addEventListener' in document && typeof document.body.addEventListener === 'function') {
     return true;
   } else {
     return false;
@@ -68,7 +73,7 @@ if (checkJavaScriptFeatures()) {
 
 function checkInputsOnBlur(inputs) {
   inputs.forEach(function (input) {
-    if (addEventListener) {
+    if (addEventListener()) {
       input.addEventListener('blur', function () {
         if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
           checkTextInput(input);

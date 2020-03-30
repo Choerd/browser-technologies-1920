@@ -9,19 +9,113 @@
 
 <hr>
 
-**Ik wil feedback op:**  
-* [ ] Idee(ën) voor pleasurable laag
-* [ ] Verbeteringen voor mijn HTML formulier
-
-<hr>
-
 ## Introductie
 
 **Case**  
-`"Ik wil een enquete kunnen invullen over de minor Web Development, met verschillende antwoord mogelijkheden. Als ik de enquete niet afkrijg, wil ik later weer verder gaan met waar ik ben gebleven."`
+`"Ik wil mij toe kunnen voegen aan het Online Vriendenboek met verschillende antwoordmogelijkheden. Als ik het formulier niet in een keer af kan krijgen wil ik later weer verder gaan waar ik was gebleven."`
 
-**Mijn oplossing**  
-De gebruiker krijgt aan het begin van de applicatie de keuze om opnieuw te beginnen of verder te gaan waar hij was gebleven. Dit kan doormiddel van een unieke user ID. De data wordt opgeslagen in een json file waar ik elke keer data naar toe stuur. Wanneer de gebruiker weggaat kan ik zien waar hij/zij gebleven is en de gebruiker naar de pagina sturen die nog niet volledig is ingevuld.
+**Hoe werkt dit in mijn applicatie**  
+Wanneer de gebruiker de applicatie opent krijgt hij/zij de keuze om opnieuw te beginnen of om verder te gaan waar hij/zij is gebleven. Dit kan aan de hand van een unieke user ID die je krijgt bij het toevoegen van jezelf. Deze user ID en de antwoorden die de gebruiker invult worden naar een json geschreven waar deze worden opgeslagen. Wanneer de gebruiker later weer terugkomt en zijn user ID invult wordt er in de json gekeken welke antwoorden er nog ontbreken, de gebruiker wordt dan naar de pagina gestuurd waar het eerst ontbrekende antwoord voorkomt.
+
+**Core-functionality/Functional Layer | Code snippets**
+<details><summary>Als de gebruiker terug wilt gaan naar een bestaand formulier</summary>
+
+Als de gebruiker is begonnen aan het formulier en besluit te stoppen om later verder te gaan kan de gebruiker zijn user ID later gebruiken om verder gaan. Deze functie kijkt of de user ID bestaat, zoja gaat hij naar de goede page. Zo niet dan wordt de gebruiker naar de pagina gestuurt waar hij een nieuwe code krijgt.
+
+```javascript
+function check(input, res) {
+    getUser(input) 
+    ? renderNewRoute(input, res) 
+    : res.redirect('/generate-user-code')
+}
+```
+
+</details>
+
+<details><summary>Toevoegen van data uit het formulier in de json</summary>
+
+In deze functie wordt eerst json uitgelezen en vervolgens opgezocht welke user het formulier aan het invullen is aan de hand van de user ID. Vervolgens wordt de data hieraan toegevoegd en weer terug geschreven naar de json.
+
+```javascript
+function addDataToArray(data, name, route, res) {
+    const json = readFromJson()
+    const user = json.find(user => user.id === data.userid)
+    const index = json.map((o) => o.id).indexOf(user.id)
+
+    json[index][`${name}`] = data
+
+    writeToJson(json)
+}
+```
+
+</details>
+
+<!-- hier -->
+
+**Usable Layer | Code snippets**
+<details><summary>De twee opties op het startscherm</summary>
+
+De positie van de twee buttons wordt bepaald aan de hand van het supporten van flex of niet. Wanneer dit wel gesupport wordt worden de opties naast en uit elkaar gezet. Wanneer het scherm kleiner wordt worden deze opties onder elkaar gezet met `flex-direction: column;`.
+
+Wanneer dit niet gesupport wordt worden de opties onder elkaar gezet met `display: block`. 
+
+```css
+[start-options] a {
+    display: block;
+    margin: auto;
+    max-width: 320px;
+}
+
+@supports (display: flex) {
+    [start-options] {
+        display: flex;
+        margin: 0;
+        justify-content: space-around;
+    }
+
+    @media screen and (max-width: 800px) {
+        [start-options] {
+            flex-direction: column;
+        }
+    }
+}
+```
+
+</details>
+
+<details><summary>Padding op de twee opties op het startscherm</summary>
+
+De padding op de buttons hangt ervan af of de browser `vw` en `vh` ondersteunt. Als de browser dit wel ondersteunt wordt deze gebruikt, ondersteunt de browser dit niet gaat het over naar `%`.
+
+```css
+[start-options] a {
+    padding: 5% 3%;
+}
+
+@media screen and (max-width: 800px) {
+    [start-options] a {
+        padding: 70px 3%;
+    }
+}
+
+@supports (padding: 1vw 1vh) {
+    [start-options] a {
+        padding: 6vh 3vw;
+    }
+}
+```
+
+</details>
+
+**Pleasurable Layer | Code snippets**
+<details><summary>Form validation door middel van Javascript</summary>
+
+
+```javascript
+
+```
+
+</details>
 
 <hr>
 
