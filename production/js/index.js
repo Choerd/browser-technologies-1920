@@ -48,12 +48,7 @@ function documentObjectChecker() {
   };
 
   return features.every(checker);
-} // Voor documentatie
-// function checkAddEventListner() {
-//     console.log('addEventListener' in document)
-//     console.log(typeof document.body.addEventListener === 'function')
-// }
-
+}
 
 function addEventListener() {
   if (addEventListener in document && typeof document.body.addEventListener === 'function') {
