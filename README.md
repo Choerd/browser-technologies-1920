@@ -2,10 +2,11 @@
 
 ## Inhoudsopgave
 * [Introductie](#Introductie)
-* [Wireflow](#"Wireflow")
-* [Code](#Code)
+* [Progressive Enhancement/Layers](#Progressive-Enhancement/Layers)
+* [Feature Detection](#Feature-Detection)
+* [Wireframes](#Wireframes)
 * [Install notes](#Install-notes)
-* [Credits](#Credits)
+<!-- * [Credits](#Credits) -->
 
 <hr>
 
@@ -17,7 +18,13 @@
 **Hoe werkt dit in mijn applicatie**  
 Wanneer de gebruiker de applicatie opent krijgt hij/zij de keuze om opnieuw te beginnen of om verder te gaan waar hij/zij is gebleven. Dit kan aan de hand van een unieke user ID die je krijgt bij het toevoegen van jezelf. Deze user ID en de antwoorden die de gebruiker invult worden naar een json geschreven waar deze worden opgeslagen. Wanneer de gebruiker later weer terugkomt en zijn user ID invult wordt er in de json gekeken welke antwoorden er nog ontbreken, de gebruiker wordt dan naar de pagina gestuurd waar het eerst ontbrekende antwoord voorkomt.
 
-**Core-functionality/Functional Layer | Code snippets**
+<hr>
+
+## Progressive Enhancement/Layers
+
+**Core-functionality/Functional Layer | Code snippets**  
+Deze code is allemaal afkomstig uit mijn `server.js`. Dit zorgt voor een goede structuur in de HTML en zorgt ervoor dat de gebruiker interactie kan hebben met het formulier en dat de data wordt opgeslagen in het json bestand.
+
 <details><summary>Als de gebruiker terug wilt gaan naar een bestaand formulier</summary>
 
 Als de gebruiker is begonnen aan het formulier en besluit te stoppen om later verder te gaan kan de gebruiker zijn user ID later gebruiken om verder gaan. Deze functie kijkt of de user ID bestaat, zoja gaat hij naar de goede page. Zo niet dan wordt de gebruiker naar de pagina gestuurt waar hij een nieuwe code krijgt.
@@ -50,9 +57,10 @@ function addDataToArray(data, name, route, res) {
 
 </details>
 
-<!-- hier -->
+<hr>
 
-**Usable Layer | Code snippets**
+**Usable Layer | Code snippets**  
+Deze laag zie ik meer als de laag om de gebruikerservaring te verbeteren. Dit heb ik eigelijk voornamelijk gedaan door middel van CSS. Hierdoor krijgt de gebruiker een beter overzicht van de pagina en spreken de elementen voor zich. Bijvoorbeeld door de 'volgende'-knop aan de rechterkant te plaatsen en de 'vorige'-knop aan de linkerkant.
 <details><summary>De twee opties op het startscherm</summary>
 
 De positie van de twee buttons wordt bepaald aan de hand van het supporten van flex of niet. Wanneer dit wel gesupport wordt worden de opties naast en uit elkaar gezet. Wanneer het scherm kleiner wordt worden deze opties onder elkaar gezet met `flex-direction: column;`.
@@ -107,10 +115,14 @@ De padding op de buttons hangt ervan af of de browser `vw` en `vh` ondersteunt. 
 
 </details>
 
-**Pleasurable Layer | Code snippets**
+<hr>
+
+**Pleasurable Layer | Code snippets**  
+De laatste laag, de pleasurable laag, zie ik meer als een extra toevoeging voor de gebruiker. Hier heb ik voor de gebruiker een validatie gemaakt van het formulier. Dit gebeurt wanneer hij van de ene naar de andere input gaat. 
+
 <details><summary>Form validation door middel van JavaScript</summary>
 
-Hieronder heb ik een voorbeeld van de code die wordt gebruikt voor het valideren van de `input type='text'`. 
+Hieronder heb ik een voorbeeld van de code die wordt gebruikt voor het valideren van de `input type='text'`. Door middel van `Regular Expressions` controlleer ik de string op blur en geeft ik de gebruiker feedback basis van zijn input door middel van een bericht en een icoontje in het inputveld.
 
 `JavaScript`
 ```javascript
@@ -149,18 +161,18 @@ function emptyFeedback(input, message) {
 
 `CSS`
 ```css
-.survey form .correct:after, .survey form .wrong:after {
-    content: attr(data-message);
-    display: block;
-    margin-bottom: 12px;
-    font-size: 14px;
-}
-
 .survey form .correct input, .survey form .wrong input {
     background-size: 13px 13px;
     background-repeat: no-repeat;
     background-position: center right 8px;
     margin-bottom: 12px;
+}
+
+.survey form .correct:after, .survey form .wrong:after {
+    content: attr(data-message);
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
 }
 
 .survey form .correct input {
@@ -176,7 +188,76 @@ function emptyFeedback(input, message) {
 
 <hr>
 
-## "Wireflow"
+## Feature Detection
+
+**Detection**  
+In mijn client-side JavaScript wordt mijn formulier gevalideerd. Voor deze code doe ik feature detection op de volgende manier:
+
+```javascript
+function documentChecker() {
+  const features = ['querySelectorAll', 'addEventListener']
+  const checker = (feature) =>
+    feature in document && typeof document.body[feature] === 'function'
+
+  return features.every(checker)
+}
+
+function documentBodyChecker() {
+  const features = ['setAttribute']
+  const checker = (feature) =>
+    feature in document.body && typeof document.body[feature] === 'function'
+
+  return features.every(checker)
+}
+
+function documentObjectChecker() {
+  const features = ['classList', 'parentElement']
+  const checker = (feature) =>
+    feature in document.documentElement && typeof document.body[feature] === 'object'
+
+  return features.every(checker)
+}
+```
+
+Wanneer een van deze functies geen `true` teruggeeft ondersteunt de browser het niet en is er geen form validatie door middel van JavaScript. De fallback is hiervoor de validatie wanneer de gebruiker op 'Submit' drukt en de normale validatie het overneemt.
+
+<br>
+
+**Fallback**  
+Omdat sommige browsers geen `addEventListener` ondersteunen heb ik hiervoor een fallback geschreven op de volgende manier:
+
+```js
+// feature-fallback.js
+function addEventListener() {
+    if ('addEventListener' in document && typeof document.body.addEventListener === 'function') {
+        return true
+    } else {
+        return false
+    }
+}
+
+// index.js
+inputs.forEach(input => {
+  if (addEventListener()) {
+    input.addEventListener('blur', () => {
+      if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
+        checkTextInput(input)
+      }
+        ...
+    })
+  } else {
+    input.attachEvent('onblur', () => {
+      if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
+        checkTextInput(input)
+      }
+        ...
+    })
+  }
+})
+``` 
+<hr>
+
+## Wireframes
 **Homescreen**  
 Hier geef ik de optie aan de gebruiker om te beginnen vanaf het begin of verder te kunnen gaan waar hij/zij was gebleven.
 
@@ -234,11 +315,6 @@ Door middel van verschillende pagina's/routes leid ik de gebruiker door het form
 
 <hr>
 
-## Code
-`Hier komen voorbeelden van gelezen artikelen en hoe ik dit op mijn code heb toegepast`
-
-<hr>
-
 ## Install notes
 1. Clone de repo van Github
 2. `https://github.com/Choerd/browser-technologies-1920.git`
@@ -247,7 +323,7 @@ Door middel van verschillende pagina's/routes leid ik de gebruiker door het form
 5. Gebruik de applicatie met `npm start`
 6. Open een browser en ga naar `http://localhost:4000/`
 
-<hr>
+<!-- <hr>
 
 ## Credits
-`None...`
+`None...` -->

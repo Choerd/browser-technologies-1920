@@ -41,19 +41,14 @@ function documentBodyChecker() {
 }
 
 function documentObjectChecker() {
-  var features = ['classList'];
+  var features = ['classList', 'parentElement'];
 
   var checker = function checker(feature) {
     return feature in document.documentElement && _typeof(document.body[feature]) === 'object';
   };
 
   return features.every(checker);
-} // Voor documentatie
-// function checkAddEventListner() {
-//     console.log('addEventListener' in document)
-//     console.log(typeof document.body.addEventListener === 'function')
-// }
-
+}
 
 function addEventListener() {
   if ('addEventListener' in document && typeof document.body.addEventListener === 'function') {
@@ -114,7 +109,7 @@ function checkInputsOnBlur(inputs) {
 }
 
 function checkTextInput(input) {
-  if (input.value.match(/^[A-Za-z]+$/)) {
+  if (input.value.match(/^[a-zA-Z0-9_ ]*$/)) {
     niceFeedback(input);
   } else if (input.value.match(/\d+/g)) {
     badFeedback(input, 'Whoops! Je hebt hier getallen ingevult, het moet tekst zijn.');

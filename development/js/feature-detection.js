@@ -21,16 +21,9 @@ function documentBodyChecker() {
 }
 
 function documentObjectChecker() {
-  const features = ['classList']
+  const features = ['classList', 'parentElement']
   const checker = (feature) =>
-    feature in document.documentElement &&
-    typeof document.body[feature] === 'object'
+    feature in document.documentElement && typeof document.body[feature] === 'object'
 
   return features.every(checker)
 }
-
-// Voor documentatie
-// function checkAddEventListner() {
-//     console.log('addEventListener' in document)
-//     console.log(typeof document.body.addEventListener === 'function')
-// }

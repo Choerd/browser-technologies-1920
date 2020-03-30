@@ -43,7 +43,7 @@ function checkInputsOnBlur(inputs) {
 }
 
 function checkTextInput(input) {
-  if (input.value.match(/^[A-Za-z]+$/)) {
+  if (input.value.match(/^[a-zA-Z0-9_ ]*$/)) {
     niceFeedback(input)
   } else if (input.value.match(/\d+/g)) {
     badFeedback(input, 'Whoops! Je hebt hier getallen ingevult, het moet tekst zijn.')
