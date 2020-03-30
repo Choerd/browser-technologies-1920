@@ -55,6 +55,14 @@ function documentObjectChecker() {
 // }
 
 
+function addEventListener() {
+  if (addEventListener in document && typeof document.body.addEventListener === 'function') {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 if (checkJavaScriptFeatures()) {
   if (document.querySelector('[survey]')) {
     var inputs = _toConsumableArray(document.querySelector('[survey]').querySelectorAll('input:not([type=hidden])'));
@@ -65,23 +73,43 @@ if (checkJavaScriptFeatures()) {
 
 function checkInputsOnBlur(inputs) {
   inputs.forEach(function (input) {
-    input.addEventListener('blur', function () {
-      if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
-        checkTextInput(input);
-      }
+    if (addEventListener) {
+      input.addEventListener('blur', function () {
+        if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
+          checkTextInput(input);
+        }
 
-      if (input.type === 'text' && input.pattern.includes('[0-9]')) {
-        checkNumberInput(input);
-      }
+        if (input.type === 'text' && input.pattern.includes('[0-9]')) {
+          checkNumberInput(input);
+        }
 
-      if (input.type === 'tel') {
-        checkTelInput(input);
-      }
+        if (input.type === 'tel') {
+          checkTelInput(input);
+        }
 
-      if (input.type === 'email') {
-        checkEmailInput(input);
-      }
-    });
+        if (input.type === 'email') {
+          checkEmailInput(input);
+        }
+      });
+    } else {
+      input.attachEvent('onblur', function () {
+        if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
+          checkTextInput(input);
+        }
+
+        if (input.type === 'text' && input.pattern.includes('[0-9]')) {
+          checkNumberInput(input);
+        }
+
+        if (input.type === 'tel') {
+          checkTelInput(input);
+        }
+
+        if (input.type === 'email') {
+          checkEmailInput(input);
+        }
+      });
+    }
   });
 }
 

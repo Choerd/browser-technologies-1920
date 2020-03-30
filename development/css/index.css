@@ -1,8 +1,8 @@
 @import 'reset.css';
 @import 'home.css';
 @import 'user-code.css';
-@import 'about-you.css';
 @import 'survey.css';
+@import 'supports.css';
 
 body {
     font-family: Lato, Arial, Helvetica, sans-serif;
@@ -22,8 +22,22 @@ body > section:first-of-type {
     background-color: #ebb22e;
 }
 
-[start-options] a:hover, [start-options] a:hover, button:hover, button:hover {
-    transform: translateY(-8px);
+section a, section button, section input {
+    border: 2px solid white;
+}
+
+section a:hover, section a:focus, section button:hover, section button:focus {
+    color: black;
+    font-weight: 600;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+input[type='text']:hover, input[type='text']:focus, input[type='tel']:hover, input[type='tel']:focus, input[type='email']:hover, input[type='email']:focus, input[type='color']:hover, input[type='color']:focus {
+    border: 2px solid black;
+    border-radius: 5px;
+    outline: none;
 }
 
 button {

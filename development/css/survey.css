@@ -13,18 +13,22 @@
 
 .survey form label input {
     margin: 4px 0px 12px 0px;
-}
-
-.survey form label input {
     display: block;
     width: 100%;
     padding: 12px 8px;
     border-radius: 5px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.45);
+    border: 2px solid white;
 }
 
 .survey form fieldset, .survey form fieldset legend {
     margin-bottom: 8px;
+}
+
+.survey form input[type="color"] {
+    padding: 0;
+    height: 30px;
+    width: 50%;
 }
 
 .survey form fieldset label input {
@@ -86,16 +90,4 @@ form nav button {
 
 .survey form .wrong input {
     background-image: url('../images/wrong.png');
-}
-
-@supports (display: flex) {
-    .survey {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
-
-    .survey section {
-        width: 600px;
-    }
 }

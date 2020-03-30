@@ -1,0 +1,71 @@
+@supports (padding: 1vw 1vh) {
+    [start-options] a {
+        padding: 6vh 3vw;
+    }
+
+    body > section:first-of-type {
+        padding: 5vh 5vw;
+    }
+
+    header, footer {
+        padding: 20px 5vw;
+    }
+}
+
+@supports (height: 1vh) and (height: calc(100vh - 120px)) {
+    body > section:first-of-type {
+        height: calc(100vh - 120px);
+    }
+}
+
+@supports (display: flex) {
+    header, footer {
+        height: 60px;
+        display: flex;
+        align-items: center;
+    }
+
+    .home {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    [start-options] {
+        display: flex;
+        margin: 0;
+        justify-content: space-around;
+    }
+
+    .survey {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .survey section {
+        width: 600px;
+    }
+
+    @media screen and (max-width: 800px) {
+        [start-options] {
+            flex-direction: column;
+        }
+
+        [start-options] a:first-of-type {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@supports not (display: flex) {
+        [start-options] a:first-of-type {
+            margin-bottom: 20px;
+        }
+
+        @media screen and (max-width: 800px) {
+            [start-options] a {
+                padding: 70px 3%;
+            }
+        }
+}

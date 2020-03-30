@@ -12,20 +12,37 @@ if (checkJavaScriptFeatures()) {
 
 function checkInputsOnBlur(inputs) {
   inputs.forEach((input) => {
-    input.addEventListener('blur', () => {
-      if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
-        checkTextInput(input);
-      }
-      if (input.type === 'text' && input.pattern.includes('[0-9]')) {
-        checkNumberInput(input);
-      }
-      if (input.type === 'tel') {
-        checkTelInput(input);
-      }
-      if (input.type === 'email') {
-        checkEmailInput(input);
-      }
-    });
+    if (addEventListener) {
+      input.addEventListener('blur', () => {
+        if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
+          checkTextInput(input);
+        }
+        if (input.type === 'text' && input.pattern.includes('[0-9]')) {
+          checkNumberInput(input);
+        }
+        if (input.type === 'tel') {
+          checkTelInput(input);
+        }
+        if (input.type === 'email') {
+          checkEmailInput(input);
+        }
+      });
+    } else {
+      input.attachEvent('onblur', () => {
+        if (input.type === 'text' && !input.pattern.includes('[0-9]')) {
+          checkTextInput(input);
+        }
+        if (input.type === 'text' && input.pattern.includes('[0-9]')) {
+          checkNumberInput(input);
+        }
+        if (input.type === 'tel') {
+          checkTelInput(input);
+        }
+        if (input.type === 'email') {
+          checkEmailInput(input);
+        }
+      });
+    }
   });
 }
 
