@@ -93,11 +93,11 @@ function checkInputsOnBlur(inputs) {
   inputs.forEach(function (input) {
     if (addEventListener()) {
       input.addEventListener('blur', function () {
-        if (input.type === 'text' && !input.pattern.indexOf('[0-9]')) {
+        if (input.type === 'text' && input.pattern === '') {
           checkTextInput(input);
         }
 
-        if (input.type === 'text' && input.pattern.indexOf('[0-9]')) {
+        if (input.type === 'text' && input.pattern === '[0-9]*') {
           checkNumberInput(input);
         }
 
@@ -111,11 +111,11 @@ function checkInputsOnBlur(inputs) {
       });
     } else {
       input.attachEvent('onblur', function () {
-        if (input.type === 'text' && !input.pattern.indexOf('[0-9]')) {
+        if (input.type === 'text' && input.pattern === '') {
           checkTextInput(input);
         }
 
-        if (input.type === 'text' && input.pattern.indexOf('[0-9]')) {
+        if (input.type === 'text' && input.pattern === '[0-9]*') {
           checkNumberInput(input);
         }
 
@@ -132,9 +132,9 @@ function checkInputsOnBlur(inputs) {
 }
 
 function checkTextInput(input) {
-  if (input.value.match(/^[a-zA-Z0-9_ ]*$/)) {
+  if (/^[a-zA-Z]+(\s[a-zA-Z]+)?$/.test(input.value)) {
     niceFeedback(input);
-  } else if (input.value.match(/\d+/g)) {
+  } else if (/\d+/g.test(input.value)) {
     badFeedback(input, 'Whoops! Je hebt hier getallen ingevult, het moet tekst zijn.');
   } else if (input.value === '') {
     emptyFeedback(input, 'Whoops! Je hebt nog niks ingevult.');
@@ -142,7 +142,7 @@ function checkTextInput(input) {
 }
 
 function checkNumberInput(input) {
-  if (input.value.match(/^[0-9]+$/)) {
+  if (/^[0-9]+$/.test(input.value)) {
     niceFeedback(input, '');
   } else if (input.value.match(/^[A-Za-z]+$/)) {
     badFeedback(input, 'Whoops! Je hebt hier tekst ingevult, het moeten getallen zijn!');
@@ -152,9 +152,9 @@ function checkNumberInput(input) {
 }
 
 function checkTelInput(input) {
-  if (input.value.match(/^[0-9]+$/) && input.value.length > 9) {
+  if (/^[0-9]+$/.test(input.value) && input.value.length > 9) {
     niceFeedback(input);
-  } else if (input.value.match(/^[A-Za-z]+$/) || input.value.length < 10) {
+  } else if (/^[A-Za-z]+$/.test(input.value) || input.value.length < 10) {
     badFeedback(input, 'Whoops! Volgens mij is dit geen telefoonnummer');
   } else if (input.value === '') {
     emptyFeedback(input, 'Whoops! Je hebt nog niks ingevult.');
