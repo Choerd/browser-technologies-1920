@@ -83,14 +83,20 @@ function addEventListener() {
 
 if (checkJavaScriptFeatures()) {
   if (document.querySelector('[survey]')) {
-    var inputs = _toConsumableArray(document.querySelector('[survey]').querySelectorAll('input:not([type=hidden])'));
+    // var inputs = _toConsumableArray(document.querySelector('[survey]').querySelectorAll('input:not([type=hidden])'));
+
+
+    var inputs = document.querySelector('[survey]').querySelectorAll('input:not([type=hidden])');
 
     checkInputsOnBlur(inputs);
   }
 }
 
 function checkInputsOnBlur(inputs) {
-  inputs.forEach(function (input) {
+
+  Array.prototype.forEach.call(inputs, function (input) {
+
+    // inputs.forEach(function (input) {
     if (addEventListener()) {
       input.addEventListener('blur', function () {
         if (input.type === 'text' && input.pattern === '') {
@@ -128,7 +134,8 @@ function checkInputsOnBlur(inputs) {
         }
       });
     }
-  });
+    // });
+  })
 }
 
 function checkTextInput(input) {
