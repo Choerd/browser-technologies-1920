@@ -1,4 +1,4 @@
-.user-code section {
+.user-code .section {
     max-width: 600px;
     margin: auto;
 }
@@ -43,12 +43,4 @@
     margin: 50% 0 0 auto;
     text-transform: uppercase;
     width: 140px;
-}
-
-@supports (display: flex) {
-    .user-code {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
 }

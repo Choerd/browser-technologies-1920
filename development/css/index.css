@@ -17,16 +17,16 @@ footer {
     border-top: 2px solid #222222;
 }
 
-body > section:first-of-type {
+body > div:first-of-type {
     padding: 20px;
     background-color: #ebb22e;
 }
 
-section a, section button, section input {
+div a, div button, div input {
     border: 2px solid white;
 }
 
-section a:hover, section a:focus, section button:hover, section button:focus {
+div a:hover, div a:focus, div button:hover, div button:focus {
     color: black;
     font-weight: 600;
     outline: none;

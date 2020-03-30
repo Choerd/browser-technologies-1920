@@ -3,7 +3,7 @@
         padding: 6vh 3vw;
     }
 
-    body > section:first-of-type {
+    body > div:first-of-type {
         padding: 5vh 5vw;
     }
 
@@ -13,7 +13,7 @@
 }
 
 @supports (height: 1vh) and (height: calc(100vh - 120px)) {
-    body > section:first-of-type {
+    body > div:first-of-type {
         height: calc(100vh - 120px);
     }
 }
@@ -43,8 +43,14 @@
         justify-content: space-around;
     }
 
-    .survey section {
+    .survey .section {
         width: 600px;
+    }
+
+    .user-code {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
     }
 
     @media screen and (max-width: 800px) {

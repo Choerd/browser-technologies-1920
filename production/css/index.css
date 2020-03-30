@@ -111,10 +111,10 @@ input[type="submit"] {
     margin: 0px auto 0px auto;
 }
 
-.home section {
+.home [start-options] {
     width: 100%;
 }
-.user-code section {
+.user-code .section {
     max-width: 600px;
     margin: auto;
 }
@@ -160,15 +160,7 @@ input[type="submit"] {
     text-transform: uppercase;
     width: 140px;
 }
-
-@supports (display: flex) {
-    .user-code {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
-}
-.survey section {
+.survey .section {
     max-width: 600px;
     margin: auto;
     padding: 0px 20px;
@@ -266,7 +258,7 @@ form nav button {
         padding: 6vh 3vw;
     }
 
-    body > section:first-of-type {
+    body > div:first-of-type {
         padding: 5vh 5vw;
     }
 
@@ -276,7 +268,7 @@ form nav button {
 }
 
 @supports (height: 1vh) and (height: calc(100vh - 120px)) {
-    body > section:first-of-type {
+    body > div:first-of-type {
         height: calc(100vh - 120px);
     }
 }
@@ -306,8 +298,14 @@ form nav button {
         justify-content: space-around;
     }
 
-    .survey section {
+    .survey .section {
         width: 600px;
+    }
+
+    .user-code {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
     }
 
     @media screen and (max-width: 800px) {
@@ -346,16 +344,16 @@ footer {
     border-top: 2px solid #222222;
 }
 
-body > section:first-of-type {
+body > div:first-of-type {
     padding: 20px;
     background-color: #ebb22e;
 }
 
-section a, section button, section input {
+div a, div button, div input {
     border: 2px solid white;
 }
 
-section a:hover, section a:focus, section button:hover, section button:focus {
+div a:hover, div a:focus, div button:hover, div button:focus {
     color: black;
     font-weight: 600;
     outline: none;

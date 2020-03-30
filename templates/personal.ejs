@@ -1,59 +1,55 @@
 <%- include ('../components/head') %>
 
-<section class="survey">
+<div class="survey">
+    <div class="section">
+        <h1>Persoonlijk</h1>
 
-        <section>
-                <h1>Persoonlijk</h1>
+        <form method="post" action="/nutrition" survey>
 
-                <form method="post" action="/nutrition" survey>
+            <% if (data.question1 === '') { %>
+            <label>Ik lach het hardst om<input type="text" autocomplete="off" name="question1" required></label>
+            <% } else { %>
+            <label>Ik lach het hardst om<input type="text" autocomplete="off" name="question1"
+                    value="<%= data.question1 %>" required></label>
+            <% }%>
 
-                        <% if (data.question1 === '') { %>
-                        <label>Ik lach het hardst om<input type="text" autocomplete="off" name="question1"
-                                        required></label>
-                        <% } else { %>
-                        <label>Ik lach het hardst om<input type="text" autocomplete="off" name="question1"
-                                        value="<%= data.question1 %>" required></label>
-                        <% }%>
+            <% if (data.question2 === '') { %>
+            <label>Ik ben bang voor<input type="text" autocomplete="off" name="question2" required></label>
+            <% } else { %>
+            <label>Ik ben bang voor<input type="text" autocomplete="off" name="question2" value="<%= data.question2 %>"
+                    required></label>
+            <% }%>
 
-                        <% if (data.question2 === '') { %>
-                        <label>Ik ben bang voor<input type="text" autocomplete="off" name="question2" required></label>
-                        <% } else { %>
-                        <label>Ik ben bang voor<input type="text" autocomplete="off" name="question2"
-                                        value="<%= data.question2 %>" required></label>
-                        <% }%>
+            <% if (data.question3 === '') { %>
+            <label>Ik ben het gelukkigst als ik<input type="text" autocomplete="off" name="question3" required></label>
+            <% } else { %>
+            <label>Ik ben het gelukkigst als ik<input type="text" autocomplete="off" name="question3"
+                    value="<%= data.question3 %>" required></label>
+            <% }%>
 
-                        <% if (data.question3 === '') { %>
-                        <label>Ik ben het gelukkigst als ik<input type="text" autocomplete="off" name="question3"
-                                        required></label>
-                        <% } else { %>
-                        <label>Ik ben het gelukkigst als ik<input type="text" autocomplete="off" name="question3"
-                                        value="<%= data.question3 %>" required></label>
-                        <% }%>
+            <% if (data.question4 === '') { %>
+            <label>Ik kan niet leven zonder<input type="text" autocomplete="off" name="question4" required></label>
+            <% } else { %>
+            <label>Ik kan niet leven zonder<input type="text" autocomplete="off" name="question4"
+                    value="<%= data.question4 %>" required></label>
+            <% }%>
 
-                        <% if (data.question4 === '') { %>
-                        <label>Ik kan niet leven zonder<input type="text" autocomplete="off" name="question4"
-                                        required></label>
-                        <% } else { %>
-                        <label>Ik kan niet leven zonder<input type="text" autocomplete="off" name="question4"
-                                        value="<%= data.question4 %>" required></label>
-                        <% }%>
+            <% if (data.question5 === '') { %>
+            <label>Stiekem denk ik nog wel eens terug aan<input type="text" autocomplete="off" name="question5"
+                    required></label>
+            <% } else { %>
+            <label>Stiekem denk ik nog wel eens terug aan<input type="text" autocomplete="off" name="question5"
+                    value="<%= data.question5 %>" required></label>
+            <% }%>
 
-                        <% if (data.question5 === '') { %>
-                        <label>Stiekem denk ik nog wel eens terug aan<input type="text" autocomplete="off"
-                                        name="question5" required></label>
-                        <% } else { %>
-                        <label>Stiekem denk ik nog wel eens terug aan<input type="text" autocomplete="off"
-                                        name="question5" value="<%= data.question5 %>" required></label>
-                        <% }%>
+            <input type="hidden" name="userid" value="<%= userid %>">
 
-                        <input type="hidden" name="userid" value="<%= userid %>">
+            <!-- Navigation -->
+            <nav>
+                <a href="about-you?userid=<%= userid %>&page=about-you">Over jou</a>
+                <button type="submit" value="nutrition">Eetgewoonten</button>
+            </nav>
+        </form>
+    </div>
 
-                        <!-- Navigation -->
-                        <nav>
-                                <a href="about-you?userid=<%= userid %>&page=about-you">Over jou</a>
-                                <button type="submit" value="nutrition">Eetgewoonten</button>
-                        </nav>
-                </form>
-        </section>
-
-        <%- include ('../components/footer') %>
+    <%- include ('../components/footer') %>
