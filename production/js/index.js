@@ -133,6 +133,7 @@ function checkInputsOnBlur(inputs) {
 
 function checkTextInput(input) {
   if (/^[a-zA-Z]+(\s[a-zA-Z]+)?$/.test(input.value)) {
+    console.log('ja')
     niceFeedback(input);
   } else if (/\d+/g.test(input.value)) {
     badFeedback(input, 'Whoops! Je hebt hier getallen ingevult, het moet tekst zijn.');
