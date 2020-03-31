@@ -442,6 +442,23 @@ Door middel van verschillende pagina's/routes leid ik de gebruiker door het form
 
 <hr>
 
+## Conclusion
+Dit vak gaat over het leren maken van websites voor elke gebruiker, met elk device, in elke context. De belangrijke punten die ik heb meegenomen uit het vak zijn:
+* Zorg ervoor dat je weet wat de `core-functionality` is van je applicatie en zorg er voor dat deze hoe dan ook altijd beschikbaar is.
+* Wanneer je een goede basis hebt kun je je applicatie verbeteren door middel van Progressive Enhancement. Hiermee kun je gebruikers een betere ervaring bieden als het device en browser het toelaat.
+* Dit doe je door middel van Feature Detection. Aan de hand hiervan kan je bepalen/controleren wat de browser gaat doen.
+
+`Mijn core-functionality`  
+De belangrijkste functionaliteit van mijn applicatie is dat je tijdens het invullen van het formulier kunt stoppen en later weer verder kunt gaan. Ik heb dit bereikt door middel van een unieke user ID te geven aan de gebruiker en zijn data op te slaan in een JSON bestand. Hierdoor kan de gebruiker altijd verder gaan wanneer hij wil mits hij de user ID heeft bewaard.
+
+`Mijn Progressive Enhancement`  
+Met client side Javascript heb ik ervoor gezorgd dat de gebruiker direct feedback krijgt tijdens het invullen van het formulier. Dit zou normaal alleen gebeuren wanneer de gebruiker op submit drukt. De gebruiker krijgt feedback in de vorm van een afbeelding en tekst. Hierdoor kan je, wanneer de gebruiker zijn afbeelding uit heeft, nogsteeds feedback geven aan de gebruiker.
+
+`Feature Detection`  
+Feature Detection heb ik op twee manieren geimplementeerd. Door `@supports` te gebruiken in CSS en door functies te schrijven om te kijken of methods wel mogelijk zijn in Javascript. Hierdoor is mijn app goed te gebruiken voor elke gebruiker.
+
+<hr>
+
 ## Install notes
 1. Clone de repo van Github
 2. `https://github.com/Choerd/browser-technologies-1920.git`
