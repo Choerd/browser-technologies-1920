@@ -4,6 +4,8 @@
 * [Introductie](#Introductie)
 * [Progressive Enhancement/Layers](#Progressive-Enhancement/Layers)
 * [Feature Detection](#Feature-Detection)
+* [Browser Testing](#Browser-Testing)
+* [8-Features Testing](#8-Features-Testing)
 * [Wireframes](#Wireframes)
 * [Install notes](#Install-notes)
 <!-- * [Credits](#Credits) -->
@@ -259,6 +261,122 @@ inputs.forEach(input => {
 <hr>
 
 ## Browser Testing
+
+`Chrome`  
+**Waar ik achter kwam tijdens het testen**    
+IK gebruik Chrome als mijn browser om op te developen, hier heb ik dus in de beginfase vooral alleen maar op getest. Hierdoor kan ik nergens foutjes vinden omdat wanneer ik deze tegen kwam ik ze er meteen heb uitgehaald.
+<details><summary>GIF van de interactie</summary>
+
+![Chrome-_online-video-cutter com_](https://user-images.githubusercontent.com/45365598/78007078-11adf080-733e-11ea-81b1-b325c44776a9.gif)
+
+</details>
+
+<hr>
+
+`Firefox`  
+**Waar ik achter kwam tijdens het testen**  
+Firefox heeft hele mooie kleuren, ze zijn veel feller dan in andere browsers. Op Firefox werkt de `font-size: max(..vw, ..px)` niet. Dit zou je ook op andere manieren op kunnen lossen. Verder werkt alles prima. 
+<details><summary>GIF van de interactie</summary>
+
+![Firefox-_online-video-cutter com_](https://user-images.githubusercontent.com/45365598/78007070-107cc380-733e-11ea-8b5e-0667f0c9a3d0.gif)
+
+</details>
+
+<hr>
+
+`Safari`  
+**Waar ik achter kwam tijdens het testen**  
+Op Safari werkt vanaf het begin heb tabben niet. Je kunt alleen maar door de 'chrome' tabben. Dit moet je zelf handmatig aanzetten in de developer-tools. 
+<details><summary>GIF van de interactie</summary>
+
+![Safari-_online-video-cutter com_](https://user-images.githubusercontent.com/45365598/78007054-0bb80f80-733e-11ea-8b96-76ed5364a56d.gif)
+
+</details>
+
+<hr>
+
+`Internet Explorer`  
+**Waar ik achter kwam tijdens het testen**  
+Tijdens het testen op IE kwam ik erachter dat dit geen fijne browser is om voor te programmeren. Alle semantische HTML zoals `<main>` en `<section>` etc wordt niet ondersteund omdat ze geen HTML5 ondersteunen. Hierdoor heb ik mijn HTML meerdere malen moeten herschrijven wat niet fijn was.
+
+<details><summary>GIF van de interactie</summary>
+
+![Internet-Explorer-_online-video-cutter com_](https://user-images.githubusercontent.com/45365598/78007041-06f35b80-733e-11ea-86ab-477bfd25584a.gif)
+
+</details>
+
+<hr>
+
+`Microsoft Edge`  
+**Waar ik achter kwam tijdens het testen**  
+Ik had verwacht dat Microsoft Edge net zo zou zijn als IE maar dat bleek dus niet zo te zijn. Op Microsoft Edge deed mijn app het meteen goed vanaf de eerste test, zij ondersteunden dus meer dingen dan verwacht.
+<details><summary>GIF van de interactie</summary>
+
+![Microsoft-Edge-_online-video-cutter com_](https://user-images.githubusercontent.com/45365598/78007066-0eb30000-733e-11ea-9a8f-e39de40602a6.gif)
+
+</details>
+
+<hr>
+
+## 8-Features Testing
+
+`Afbeeldingen uitzetten`  
+Aan het einde van het inputveld zou normaal gesproken een vinkje of een kruisje komen wanneer het goed of fout is. Nu de afbeeldingen uitstaan krijg je deze niet te zien, maar je krijgt wel nogsteeds een foutmelding als je iets verkeerds invult.
+
+<details><summary>Afbeelding</summary>
+
+<img src="https://user-images.githubusercontent.com/45365598/78009878-f6dd7b00-7341-11ea-8f75-bc559ff097c6.png">
+
+</details>
+
+<hr>
+
+`Custom fonts uitzetten`  
+Voor mijn webapplicatie gebruik ik geen custom fonts. Heel veel 'basic' fonts vind ik zelf al mooi genoeg en een custom font vind ik vaak niet heel veel specialer of mooier.
+
+<hr>
+
+`Kleur uitzetten en kleurenblindheid instellen`  
+Om dit te kunnen meten heb ik een website gebruikt die contrast voor mij weergeeft. Ik heb de kleur van de tekst vergeleken met de kleur van de achtergrond aangezien dat het belangrijkst is, tekst moet altijd te lezen zijn natuurlijk!
+
+<details><summary>Afbeelding</summary>
+
+<img src="https://user-images.githubusercontent.com/45365598/78011224-96e7d400-7343-11ea-8e14-6bc0a594cee8.png">
+
+</details>
+
+<hr>
+
+`Muis/trackpad werkt niet`  
+Een zeer belangrijk punt om op te letten, hier heb ik tot nu toe eigelijk nooit echt rekening mee gehouden. Vooral een simpele `:focus` aan je styling toevoegen doet al een hele hoop!
+
+<details><summary>GIF hoe ik door mijn formulier tab</summary>
+
+![Schermopname-2020-03-31-om-11 41 44-_online-video-cutter com_](https://user-images.githubusercontent.com/45365598/78012437-3ce80e00-7345-11ea-8aad-dadb3ca72a68.gif)
+
+
+</details>
+
+<hr>
+
+`Breedband internet uitzetten`  
+Wanneer ik mijn network op `Slow 3G` zet werkt mijn website nog precies hetzelfde, het is alleen iets langzamer.
+
+<hr>
+
+`Javascript uitzetten`
+Aangezien de core functionaliteit van mijn webapplicatie wordt gedaan via de server kan de applicatie gewoon gebruikt worden zonder Javascript. Alleen de validatie van het formulier wordt niet gedaan. De validatie die een formulier normaal heeft wanneer je op submit drukt is daarom ook de fallback hiervoor. 
+
+<hr>
+
+`Cookies niet accepteren`  
+In deze webapplicatie worden geen cookies gebruikt.
+
+<hr>
+
+`LocalStorage uitzetten`  
+In deze webapplicatie wordt geen LocalStorage gebruikt.
+
 
 <hr>
 
