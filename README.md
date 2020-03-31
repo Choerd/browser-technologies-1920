@@ -334,6 +334,10 @@ Aan het einde van het inputveld zou normaal gesproken een vinkje of een kruisje 
 `Custom fonts uitzetten`  
 Voor mijn webapplicatie gebruik ik geen custom fonts. Heel veel 'basic' fonts vind ik zelf al mooi genoeg en een custom font vind ik vaak niet heel veel specialer of mooier.
 
+```css
+font-family: Lato, Arial, Helvetica, sans-serif;
+```
+
 <hr>
 
 `Kleur uitzetten en kleurenblindheid instellen`  
